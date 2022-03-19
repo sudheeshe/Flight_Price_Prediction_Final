@@ -8,7 +8,7 @@ import pandas as pd
 from application_logger.logging import AppLogger
 
 
-class rawDataValidation:
+class RawDataValidation:
     """
                  This class shall be used for handling all the validation done on the Raw Training Data!!.
     """
@@ -65,7 +65,7 @@ class rawDataValidation:
         """
                                               Method Name: create_directory_for_GoodBadRaw_data
                                               Description: This method creates directories to store the Good Data and Bad Data
-                                                            after validating the training data.
+                                                           after validating the training data.
 
                                               Output: None
                                               On Failure: OSError
@@ -244,7 +244,7 @@ class rawDataValidation:
             self.logger.log(f, "Column Length Validation Started!!")
 
             for file in listdir('Training_Raw_files_validated/Good_Raw/'):
-                data = pd.read_excel("Training_Raw_files_validated/Good_Raw/" + file)
+                data = pd.read_excel("Training_Raw_files_validated/Good_Raw/" + file, engine='openpyxl')
                 if data.shape[1] == number_of_columns:
                     pass
                 else:
@@ -279,7 +279,7 @@ class rawDataValidation:
 
             path = 'Training_Raw_Files_Validated/Good_Raw/'
             for f in os.listdir(path):
-                data = pd.read_excel(path + f)
+                data = pd.read_excel(path + f, engine='openpyxl')
                 for col in data.columns:
                     if data[col].isnull().all():
                         shutil.move(path + f, 'Training_Raw_Files_Validated/Bad_Raw')

@@ -50,7 +50,7 @@ class DBOperation:
         return session
 
 
-    def create_table_in_db(self, database_name):
+    def create_table_in_db(self, database_name, column_names):
         """
                 Method Name: createTableDb
                 Description: This method creates a table in the given database which will be used to insert the Good data after raw data validation.
@@ -61,8 +61,16 @@ class DBOperation:
 
             session = self.database_connection(database_name)
             row = session.execute("USE flight_price_prediction_keyspace;")
-            row = session.execute("DROP TABLE if exists flight_price_prediction_gooddata;")
-            row = session.execute("CREATE TABLE flight_price_prediction_gooddata(Id int PRIMARY KEY, Airline int, Source int, Destination int, Dep_Time int, Arrival_Time int, Duration int, Total_Stops int, Additional_Info int, Price int, Month_of_Journey int,	Day_of_Journey int, Weekday_of_Journey int);")
+            row = session.execute("DROP TABLE IF EXISTS flight_price_prediction_gooddata;")
+            for key in column_names.keys():
+                d_type = column_names[key]
+
+                if key == 'Airline':
+                    row = session.execute(f"CREATE TABLE flight_price_prediction_gooddata ({key} {d_type} PRIMARY KEY);")
+                else:
+                    row = session.execute(f"ALTER TABLE flight_price_prediction_gooddata ADD ({key} {d_type});")
+
+                # row = session.execute("CREATE TABLE flight_price_prediction_gooddata(Id int PRIMARY KEY, Airline int, Source int, Destination int, Dep_Time int, Arrival_Time int, Duration int, Total_Stops int, Additional_Info int, Price int, Month_of_Journey int,	Day_of_Journey int, Weekday_of_Journey int);")
 
             file = open("Training_Logs/DbTableCreateLog.txt", 'a+')
             self.logger.log(file, "Tables created successfully!!")

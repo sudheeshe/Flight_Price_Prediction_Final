@@ -289,10 +289,10 @@ class DataTransform:
             for files in onlyfiles:
                 df = pd.read_excel(self.goodDataPath + "/" + files, engine='openpyxl')
                 count = df[column_name].value_counts()
-                df = df[~df[column_name].isin(count[count < int(value)].index)]
+                df_new = df[~df[column_name].isin(count[count < int(value)].index)]
             self.logger.log(file, "Dropping of the row based on value_counts are successful....!!")
             file.close()
-            return df
+            return df_new
 
         except Exception as e:
             self.logger.log(file, f"Error occurred while dropping records based on value_counts {e}")
