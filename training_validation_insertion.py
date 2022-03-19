@@ -16,6 +16,7 @@ class TrainValidation:
         self.db_operation = DBOperation()
         self.file = open("Training_Logs/Training_Main_Log.txt", 'a+')
         self.logger = AppLogger()
+        self.database_name = 'flight_price_prediction'
 
     def train_validation(self):
 
@@ -32,6 +33,31 @@ class TrainValidation:
             # validating if any column has all values missing
             self.raw_data.validate_missing_values_in_whole_columns()
             self.logger.log(self.file, "Raw Data Validation Complete!!")
+
+            self.logger.log(self.file, "Creating Training_Database and tables on the basis of given schema!!!")
+            # create database with given name, if present open the connection! Create table with columns given in schema file
+            self.db_operation.create_table_in_db(self.database_name)
+            self.logger.log(self.file, f"Table created successfully on Cassandra DB ")
+            self.logger.log(self.file, "Starting Insertion of Data into Table !!!!")
+            # insert csv files in the table
+            self.db_operation.insert_data_to_db_table(self.database_name)
+            self.logger.log(self.file,"Data has been inserted successfully on Casandra!!!")
+            self.logger.log(self.file, "Deleting Good Data Folder")
+            # Delete the good data folder after loading files in table
+            self.raw_data.delete_existing_Good_data_training_folder()
+            self.logger.log(self.file, "Good_Data folder deleted!!!")
+            self.logger.log(self.file, "Moving bad files to Archive and deleting Bad_Data folder!!!")
+            # Move the bad files to archive folder
+            self.raw_data.move_BadFiles_to_Archive()
+            self.logger.log(self.file, "Bad files moved to archive!! Bad folder Deleted!!")
+            self.logger.log(self.file, "Validation Operation completed!!")
+            self.logger.log(self.file, "Extracting csv file from table")
+            # export data in table to csvfile
+            self.db_operation.selecting_data_from_table_into_csv(self.database_name)
+
+
+
+
 
         except Exception as e:
             print(e)

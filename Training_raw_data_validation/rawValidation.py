@@ -150,7 +150,7 @@ class RawDataValidation:
 
             source = 'Training_Raw_files_validated/Bad_Raw/'
             if os.path.isdir(source):
-                path = "TrainingArchiveBadData"
+                path = "TrainingArchiveBadData/"
                 if not os.path.isdir(path):
                     os.makedirs(path)
                 dest = 'TrainingArchiveBadData/BadData_' + str(date)+"_"+str(time)

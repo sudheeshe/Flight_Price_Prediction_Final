@@ -19,9 +19,13 @@ from training_validation_insertion import TrainValidation
 
 #a = TrainValidation('Training_Batch_Files/')
 #a.train_validation()
-c = RawDataValidation('Training_Batch_Files')
-n,col_names,p = c.values_from_schema()
-print(col_names)
+#c = RawDataValidation('Training_Batch_Files')
+#n,col_names,p = c.values_from_schema()
+#print(col_names)
 
 a = DBOperation()
-a.create_table_in_db('flight_price_prediction',col_names)
+#a.create_table_in_db(col_names)
+#a.insert_data_to_db_table('flight_price_prediction',col_names)
+#a.selecting_data_from_table_into_csv('flight_price_prediction')
+#print('finished')
+
