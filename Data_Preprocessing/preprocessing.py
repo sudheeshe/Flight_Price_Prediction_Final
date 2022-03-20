@@ -1,9 +1,11 @@
 import pandas as pd
 import numpy as np
 from sklearn.impute import KNNImputer
-from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
+from sklearn.compose import ColumnTransformer
 from datetime import datetime
 from os import listdir
+import os
 from application_logger.logging import AppLogger
 
 
@@ -18,7 +20,7 @@ class Preprocessor:
         self.logger = logger
         self.file = file
 
-    def converting_to_datetime(self):
+    def converting_to_datetime(self, column_name):
         """
               Method Name: converting_to_datetime
               Description: This method converts Date_of_Journey to datetime format.
@@ -35,16 +37,16 @@ class Preprocessor:
             for files in onlyfiles:
                 df = pd.read_csv(self.input_file + "/" + files)
                 #Converting 'Date_of_Journey' to datetime format
-                df.Date_of_Journey = pd.to_datetime(df['Date_of_Journey'], format = '%d/%m/%Y')
+                df.column_name = pd.to_datetime(df[column_name], format = '%d/%m/%Y')
 
                 # Creating 'Month_of_Journey' , 'Day_of_Journey', 'Year_of_Journey' columns
-                df['Month_of_Journey'] = df['Date_of_Journey'].dt.month
-                df['Day_of_Journey'] = df['Date_of_Journey'].dt.day
-                df['Weekday_of_Journey'] = df['Date_of_Journey'].dt.weekday
+                df['Month_of_Journey'] = df[column_name].dt.month
+                df['Day_of_Journey'] = df[column_name].dt.day
+                df['Weekday_of_Journey'] = df[column_name].dt.weekday
 
                 # Dropping 'Date_of_Journey' column
-                df.drop('Date_of_Journey', axis='columns', inplace=True)
-                self.logger.log(self.file, "Conversion to datetime format of 'Date_of_Journey' column is successful......!!")
+                df.drop('column_name', axis='columns', inplace=True)
+                self.logger.log(self.file, f"Conversion to datetime format of '{column_name}' column is successful......!!")
                 self.file.close()
                 return df
 
@@ -111,7 +113,6 @@ class Preprocessor:
              Description: This method drops the specified column from the dataframe
              Output: Nil
         """
-
 
         try:
             onlyfiles = [f for f in listdir(self.input_file)]
@@ -296,15 +297,151 @@ class Preprocessor:
                 df = pd.read_csv(self.input_file + "/" + files)
                 count = df[column_name].value_counts()
                 df = df[~df[column_name].isin(count[count < int(value)].index)]
-            self.logger.log(self.file, "Dropping of the row based on value_counts are successful....!!")
-            self.file.close()
+            #self.logger.log(self.file, "Dropping of the row based on value_counts are successful....!!")
+            #self.file.close()
             return df
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while dropping records based on value_counts {e}")
             self.file.close()
 
+    def separate_label_feature(self, data, label_column):
+        """
+               Method Name: separate_label_feature
+               Description: This method separates the independent features and dependent feature.
+               Output: Returns two separate Dataframes, one containing independent features and the other containing dependent feature .
+               On Failure: Raise Exception
+        """
+        self.logger.log(self.file, 'Entered the separate_label_feature method of the Preprocessor class')
 
+        try:
+            self.X =data.drop(labels = label_column, axis = 'columns')
+            self.Y = data[label_column]
+            self.logger.log(self.file,'Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class')
+            return self.X, self.Y
+
+        except Exception as e:
+            self.logger.log(self.file,f'Exception occured in separate_label_feature method of the Preprocessor class. Exception message: {e}')
+            self.logger.log(self.file, 'Label Separation Unsuccessful. Exited the separate_label_feature method of the Preprocessor class')
+            raise Exception()
+
+
+
+    def is_null_present(self,data):
+        """
+              Method Name: is_null_present
+              Description: This method checks whether there are null values present in the pandas Dataframe or not.
+              Output: Returns True if null values are present in the DataFrame, False if they are not present and
+                        returns the list of columns for which null values are present.
+              On Failure: Raise Exception
+        """
+        #self.logger.log(self.file, 'Entered the is_null_present method of the Preprocessor class')
+        self.null_present = False
+        self.columns_with_missing_values = []
+        self.cols = data.columns
+        self.folder = 'Null_Values_In_Dataframe'
+
+        try:
+            self.null_counts = data.isna().sum()
+            for i in range(len(self.null_counts)):
+                if self.null_counts[i]>0:
+                    self.null_present = True
+                    self.columns_with_missing_values.append(self.cols[i])
+            if (self.null_present):  # write the logs to see which columns have null values
+                self.dataframe_with_null = pd.DataFrame()
+                self.dataframe_with_null['columns'] = data.columns
+                self.dataframe_with_null['missing values count'] = np.asarray(data.isna().sum())
+
+                if not os.path.isdir(self.folder):
+                    os.makedirs(self.folder)
+                    self.dataframe_with_null.to_csv(self.folder + '/' + 'null_values.csv', index=False)  # storing the null column information to file
+                else:
+                    self.dataframe_with_null.to_csv(self.folder + '/' + 'null_values.csv', index=False) # storing the null column information to file
+
+            #self.logger.log(self.file,'Finding missing values is a success.Data written to the null values file. Exited the is_null_present method of the Preprocessor class')
+            return self.null_present, self.columns_with_missing_values
+
+
+        except Exception as e:
+            self.logger.log(self.file,f'Exception occured in is_null_present method of the Preprocessor class. Exception message: {e}')
+            self.logger.log(self.file,'Finding missing values failed. Exited the is_null_present method of the Preprocessor class')
+            raise Exception()
+
+
+
+    def onehot_encoder(self, column_name):
+        """
+             Method Name: column_value_into_minutes
+             Description: This method does the conversion of time into minutes of specified column
+             Output: Nil
+        """
+
+        try:
+            encoder = OneHotEncoder(dtype=int, handle_unknown='ignore')
+            onlyfiles = [f for f in listdir(self.input_file)]
+            for files in onlyfiles:
+                df = pd.read_csv(self.input_file + "/" + files)
+                col_transformer = ColumnTransformer([('OHE', encoder, [column_name])], remainder='passthrough')
+                df = col_transformer.fit_transform(df)
+            #self.logger.log(self.file, "Label Encoding of the values are successful....!!")
+            #self.file.close()
+            return df
+
+        except Exception as e:
+            self.logger.log(self.file, f"Error occurred while label encoding {e}")
+            self.file.close()
+
+
+    def impute_missing_values(self, data):
+        """
+                Method Name: impute_missing_values
+                Description: This method replaces all the missing values in the Dataframe using KNN Imputer.
+                Output: A Dataframe which has all the missing values imputed.
+                On Failure: Raise Exception
+        """
+
+        self.logger.log(self.file, 'Entered the impute_missing_values method of the Preprocessor class')
+        self.data= data
+        try:
+            imputer=KNNImputer(n_neighbors=3, weights='uniform',missing_values=np.nan)
+            self.new_array=imputer.fit_transform(self.data) # impute the missing values
+            # convert the nd-array returned in the step above to a Dataframe
+            self.new_data=pd.DataFrame(data=(self.new_array), columns=self.data.columns)
+            self.logger.log(self.file, 'Imputing missing values Successful. Exited the impute_missing_values method of the Preprocessor class')
+            return self.new_data
+        except Exception as e:
+            self.logger.log(self.file,'Exception occured in impute_missing_values method of the Preprocessor class. Exception message:  ' + str(e))
+            self.logger.log(self.file,'Imputing missing values failed. Exited the impute_missing_values method of the Preprocessor class')
+            raise Exception()
+
+
+
+    def get_columns_with_zero_std_deviation(self,data):
+        """
+                                                Method Name: get_columns_with_zero_std_deviation
+                                                Description: This method finds out the columns which have a standard deviation of zero.
+                                                Output: List of the columns with standard deviation of zero
+                                                On Failure: Raise Exception
+
+                                                Written By: iNeuron Intelligence
+                                                Version: 1.0
+                                                Revisions: None
+                             """
+        self.logger.log(self.file, 'Entered the get_columns_with_zero_std_deviation method of the Preprocessor class')
+        self.columns=data.columns
+        self.data_n = data.describe()
+        self.col_to_drop=[]
+        try:
+            for x in self.columns:
+                if (self.data_n[x]['std'] == 0): # check if standard deviation is zero
+                    self.col_to_drop.append(x)  # prepare the list of columns with standard deviation zero
+            self.logger.log(self.file, 'Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class')
+            return self.col_to_drop
+
+        except Exception as e:
+            self.logger.log(self.file,'Exception occured in get_columns_with_zero_std_deviation method of the Preprocessor class. Exception message:  ' + str(e))
+            self.logger.log(self.file, 'Column search for Standard Deviation of Zero Failed. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class')
+            raise Exception()
 
 
 

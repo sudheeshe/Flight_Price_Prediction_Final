@@ -18,6 +18,7 @@ from application_logger.logging import AppLogger
 #a.create_table_in_db("flight_price_prediction")
 #a.insert_data_to_db_table("flight_price_prediction")
 #a.selecting_data_from_table_into_csv('flight_price_prediction')
+from Data_Preprocessing.clustering import KMeansClustering
 
 
 #a = TrainValidation('Training_Batch_Files/')
@@ -35,7 +36,10 @@ from application_logger.logging import AppLogger
 
 file = 'Training_Logs/GeneralLog.txt'
 logger = AppLogger()
-a = Preprocessor(file, logger)
-d = a.drop_rows_based_on_value_count('Airline', 15)
-print(d)
+c = Preprocessor(file, logger)
+d = c.onehot_encoder('Airline')
+#print(d)
+
+a = KMeansClustering(file, logger)
+a.elbow_plot(d)
 

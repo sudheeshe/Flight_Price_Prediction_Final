@@ -8,10 +8,11 @@
     "Destination" : "VARCHAR",
     "Route" : "VARCHAR",
     "Dep_Time" : "VARCHAR",
-    "Arrival_Time" : "VARCHAR","Duration" : "VARCHAR",
+    "Arrival_Time" : "VARCHAR",
+    "Duration" : "VARCHAR",
     "Total_Stops" : "VARCHAR",
     "Additional_Info" : "VARCHAR",
-    "Price" : "INTEGER"
+    "Price" : "INT"
 
   }
 
