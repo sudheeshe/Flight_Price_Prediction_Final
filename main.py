@@ -4,6 +4,8 @@ from Training_raw_data_validation.rawValidation import RawDataValidation
 import pandas as pd
 from training_validation_insertion import TrainValidation
 from Data_Ingestion.data_loader import DataGetter
+from Data_Preprocessing.preprocessing import Preprocessor
+from application_logger.logging import AppLogger
 
 
 #a = DataTransform()
@@ -30,4 +32,10 @@ from Data_Ingestion.data_loader import DataGetter
 #a.selecting_data_from_table_into_csv('flight_price_prediction')
 #print('finished')
 
+
+file = 'Training_Logs/GeneralLog.txt'
+logger = AppLogger()
+a = Preprocessor(file, logger)
+d = a.drop_rows_based_on_value_count('Airline', 15)
+print(d)
 
