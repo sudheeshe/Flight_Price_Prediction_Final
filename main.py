@@ -3,6 +3,7 @@ from DataTransfrom_Training.DataTransformation import DataTransform
 from Training_raw_data_validation.rawValidation import RawDataValidation
 import pandas as pd
 from training_validation_insertion import TrainValidation
+from Data_Ingestion.data_loader import DataGetter
 
 
 #a = DataTransform()
@@ -23,9 +24,10 @@ from training_validation_insertion import TrainValidation
 #n,col_names,p = c.values_from_schema()
 #print(col_names)
 
-a = DBOperation()
+#a = DBOperation()
 #a.create_table_in_db(col_names)
 #a.insert_data_to_db_table('flight_price_prediction',col_names)
 #a.selecting_data_from_table_into_csv('flight_price_prediction')
 #print('finished')
+
 

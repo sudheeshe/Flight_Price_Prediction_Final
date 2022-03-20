@@ -6,10 +6,10 @@ from application_logger.logging import AppLogger
 
 
 class TrainValidation:
-
     """
     This method validates and transform the training data
     """
+
     def __init__(self, path):
         self.raw_data = RawDataValidation(path)
         self.data_transform = DataTransform()
@@ -22,9 +22,9 @@ class TrainValidation:
 
         try:
             self.logger.log(self.file, 'Start of Validation on files for prediction!!')
-            #extracting values from prediction schema
+            # extracting values from prediction schema
             LengthOfYearStampInFile, column_names, NumberOfColumns = self.raw_data.values_from_schema()
-            #getting the regex defined to validate filename
+            # getting the regex defined to validate filename
             regex = self.raw_data.manual_regex_creation()
             # validating filename of prediction files
             self.raw_data.validation_file_name_raw(regex, LengthOfYearStampInFile)
@@ -41,7 +41,7 @@ class TrainValidation:
             self.logger.log(self.file, "Starting Insertion of Data into Table !!!!")
             # insert csv files in the table
             self.db_operation.insert_data_to_db_table(self.database_name)
-            self.logger.log(self.file,"Data has been inserted successfully on Casandra!!!")
+            self.logger.log(self.file, "Data has been inserted successfully on Casandra!!!")
             self.logger.log(self.file, "Deleting Good Data Folder")
             # Delete the good data folder after loading files in table
             self.raw_data.delete_existing_Good_data_training_folder()
@@ -54,10 +54,11 @@ class TrainValidation:
             self.logger.log(self.file, "Extracting csv file from table")
             # export data in table to csvfile
             self.db_operation.selecting_data_from_table_into_csv(self.database_name)
+            self.file.close()
 
 
 
 
 
         except Exception as e:
-            print(e)
+            raise e
