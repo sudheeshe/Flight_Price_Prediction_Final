@@ -295,10 +295,10 @@ class Preprocessor:
             for files in onlyfiles:
                 df = pd.read_csv(self.input_file + "/" + files)
                 count = df[column_name].value_counts()
-                df_new = df[~df[column_name].isin(count[count < int(value)].index)]
+                df = df[~df[column_name].isin(count[count < int(value)].index)]
             self.logger.log(self.file, "Dropping of the row based on value_counts are successful....!!")
             self.file.close()
-            return df_new
+            return df
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while dropping records based on value_counts {e}")
