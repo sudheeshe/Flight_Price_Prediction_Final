@@ -37,7 +37,8 @@ class TrainModel:
             data =  data_getter.get_data()
 
 
-            ########### Doing the Preprocessing ###########
+            ################################# PREPROCESSING AND FEATURE ENGINEERING ####################################
+
             preprocessor = Preprocessor(self.file, self.logger)
 
             # check if missing values are present in the dataset
@@ -74,20 +75,34 @@ class TrainModel:
             data = preprocessor.convert_column_to_part_of_day(data, 'Dep_Time')
             data = preprocessor.convert_column_to_part_of_day(data, 'Arrival_Time')
 
+            # Converting 'Duration' column into minutes
+            data = preprocessor.column_value_into_minutes(data, 'Duration')
 
+            # Dropping Route and ID columns
+            data = preprocessor.drop_column(data, ['Route', 'ID'])
 
+            # Separating Features and label
+            train_x, train_y = preprocessor.separate_label_feature(data, 'Price')
 
-
-
-
-
+            # Encoding categorical variables using Onehot Encoding Technique
+            train_x = preprocessor.onehot_encoder(data, ['Airline', 'Source', 'Destination', 'Arrival_Time', 'Dep_Time', 'Additional_Info'])
 
 
 
             # if missing values are there, replace them appropriately.
             # kNNImputer works only for numeric variables, So if any columns is in categorical format need to be mapped to numeric
-            if (is_null_values_present) :
-                data = preprocessor.impute_missing_values(data)
+            #if (is_null_values_present) :
+                #data = preprocessor.impute_missing_values(data)
+
+
+
+            ###################################### APPLYING CLUSTERING ###########################################
+
+            kmeans = KMeansClustering(self.file, self.logger)
+            number_of_clusters = kmeans.elbow_plot(train_x)
+
+            # Dividing the data into clusters
+            train_x = kmeans.create_clusters(train_x, number_of_clusters)
 
 
 

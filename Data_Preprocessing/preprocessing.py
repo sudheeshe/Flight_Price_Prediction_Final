@@ -116,7 +116,7 @@ class Preprocessor:
 
 
 
-    def drop_column(self, column_name):
+    def drop_column(self, data, column_name):
 
         """
              Method Name: drop_column
@@ -125,13 +125,10 @@ class Preprocessor:
         """
 
         try:
-            onlyfiles = [f for f in listdir(self.input_file)]
-            for files in onlyfiles:
-                df = pd.read_csv(self.input_file + "/" + files)
-                df.drop(column_name, axis='columns', inplace= True,)
+            data.drop(column_name, axis='columns', inplace= True,)
             self.logger.log(self.file, f'{column_name} column has been removed successfully...!!')
 
-            return df
+            return data
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while removing {column_name} column, Error is {e}")
@@ -240,7 +237,7 @@ class Preprocessor:
 
 
 
-    def column_value_into_minutes(self, column_name):
+    def column_value_into_minutes(self, data, column_name):
         """
              Method Name: column_value_into_minutes
              Description: This method does the conversion of time into minutes of specified column
@@ -248,13 +245,11 @@ class Preprocessor:
         """
 
         try:
-            onlyfiles = [f for f in listdir(self.input_file)]
-            for files in onlyfiles:
-                df = pd.read_csv(self.input_file + "/" + files)
-                df[column_name] = df[column_name].apply(self.convert_to_minutes)
+            data[column_name] = data[column_name].apply(self.convert_to_minutes)
+            data[column_name] = data[column_name].astype('int')
             self.logger.log(self.file, "Conversion of column values into minutes are successful....!!")
 
-            return df
+            return data
 
         except Exception as e:
             self.logger.log(self.file, f"Error while converting column values into minutes {e}")
@@ -367,7 +362,7 @@ class Preprocessor:
 
 
 
-    def onehot_encoder(self, column_name):
+    def onehot_encoder(self, data, column_name):
         """
              Method Name: column_value_into_minutes
              Description: This method does the conversion of time into minutes of specified column
@@ -376,14 +371,11 @@ class Preprocessor:
 
         try:
             encoder = OneHotEncoder(dtype=int, handle_unknown='ignore')
-            onlyfiles = [f for f in listdir(self.input_file)]
-            for files in onlyfiles:
-                df = pd.read_csv(self.input_file + "/" + files)
-                col_transformer = ColumnTransformer([('OHE', encoder, [column_name])], remainder='passthrough')
-                df = col_transformer.fit_transform(df)
+            col_transformer = ColumnTransformer([('OHE', encoder, column_name)], remainder='passthrough')
+            data = col_transformer.fit_transform(data)
             #self.logger.log(self.file, "Label Encoding of the values are successful....!!")
 
-            return df
+            return data
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while label encoding {e}")
