@@ -20,7 +20,7 @@ class Preprocessor:
         self.logger = logger
         self.file = file
 
-    def converting_to_datetime(self, column_name):
+    def converting_to_datetime(self, data, column_name):
         """
               Method Name: converting_to_datetime
               Description: This method converts Date_of_Journey to datetime format.
@@ -33,27 +33,24 @@ class Preprocessor:
 
 
         try:
-            onlyfiles = [f for f in listdir(self.input_file)]
-            for files in onlyfiles:
-                df = pd.read_csv(self.input_file + "/" + files)
-                #Converting 'Date_of_Journey' to datetime format
-                df.column_name = pd.to_datetime(df[column_name], format = '%d/%m/%Y')
+            #Converting 'Date_of_Journey' to datetime format
+            data[column_name] = pd.to_datetime(data[column_name], format = '%d-%m-%Y')
 
-                # Creating 'Month_of_Journey' , 'Day_of_Journey', 'Year_of_Journey' columns
-                df['Month_of_Journey'] = df[column_name].dt.month
-                df['Day_of_Journey'] = df[column_name].dt.day
-                df['Weekday_of_Journey'] = df[column_name].dt.weekday
+            # Creating 'Month_of_Journey' , 'Day_of_Journey', 'Year_of_Journey' columns
+            data['Month_of_Journey'] = data[column_name].dt.month
+            data['Day_of_Journey'] = data[column_name].dt.day
+            data['Weekday_of_Journey'] = data[column_name].dt.weekday
 
-                # Dropping 'Date_of_Journey' column
-                df.drop('column_name', axis='columns', inplace=True)
-                self.logger.log(self.file, f"Conversion to datetime format of '{column_name}' column is successful......!!")
-                self.file.close()
-                return df
+            # Dropping 'Date_of_Journey' column
+            data = data.drop(column_name, axis='columns')
+            self.logger.log(self.file, f"Conversion to datetime format of '{column_name}' column is successful......!!")
+
+            return data
 
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred during conversion {e}")
-            self.file.close()
+
 
 
     def parts_of_the_day(self, x):
@@ -67,24 +64,42 @@ class Preprocessor:
 
         try:
             x = x.strip()
-            t = (int)(x.split(':')[0])
-            if (t >= 5 and t < 11):
-                x = 'morning'
-            elif (t >= 11 and t < 16):
-                x = 'afternoon'
-            elif (t >= 16 and t < 21):
-                x = 'evening'
-            elif (t >= 21 or t < 5):
-                x = 'night'
+            t = (x.split(':')[0])
 
-            return x
+            if len(t) > 2:
+                t = (x.split(' ')[1])
+                t = (t.split(':')[0])
+                if (int(t) >= 5 and int(t)  < 11):
+                    string = 'morning'
+                elif (int(t)  >= 11 and int(t)  < 16):
+                    string = 'afternoon'
+                elif (int(t)  >= 16 and int(t)  < 21):
+                    string = 'evening'
+                elif (int(t)  >= 21 or int(t)  < 5):
+                    string = 'night'
+
+
+
+            else:
+                if (int(t)  >= 5 and int(t)  < 11):
+                    string = 'morning'
+                elif (int(t)  >= 11 and int(t)  < 16):
+                    string = 'afternoon'
+                elif (int(t)  >= 16 and int(t)  < 21):
+                    string = 'evening'
+                elif (int(t)  >= 21 or int(t)  < 5):
+                    string = 'night'
+
+            return string
+
+
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred {e}")
 
 
 
-    def convert_column_to_part_of_day(self, column_name):
+    def convert_column_to_part_of_day(self, data, column_name):
         """
               Method Name: convert_column_to_part_of_day
               Description: This method converts the mentioned column to parts of the day like (Morning, Afternoon, Evening,Night)
@@ -92,18 +107,13 @@ class Preprocessor:
         """
 
         try:
-            onlyfiles = [f for f in listdir(self.input_file)]
-            for files in onlyfiles:
-                df = pd.read_csv(self.input_file + "/" + files)
-                df[column_name] = df[column_name].apply(self.parts_of_the_day)
-
+            data[column_name] = data[column_name].apply(self.parts_of_the_day)
             self.logger.log(self.file, f"Conversion to parts_of_day of '{column_name}' column is successful......!!")
-            self.file.close()
-            return df
+            return data
 
         except Exception as e:
             self.logger.log(self.file, f"Conversion to parts_of_day of '{column_name}' column failed {e}")
-            self.file.close()
+
 
 
     def drop_column(self, column_name):
@@ -120,16 +130,16 @@ class Preprocessor:
                 df = pd.read_csv(self.input_file + "/" + files)
                 df.drop(column_name, axis='columns', inplace= True,)
             self.logger.log(self.file, f'{column_name} column has been removed successfully...!!')
-            self.file.close()
+
             return df
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while removing {column_name} column, Error is {e}")
-            self.file.close()
 
 
 
-    def drops_rows_with_nan(self):
+
+    def drops_rows_with_nan(self, data):
         """
               Method Name: drops_rows_with_nan
               Description: This method drops the rows which have NaN
@@ -137,20 +147,18 @@ class Preprocessor:
         """
 
         try:
-            onlyfiles = [f for f in listdir(self.input_file)]
-            for files in onlyfiles:
-                df = pd.read_csv(self.input_file + "/" + files)
-                df.dropna(inplace = True)
+            #df = pd.read_csv(data)
+            data.dropna(inplace = True)
             self.logger.log(self.file, "Dropping Nan rows are successfull....!!")
-            self.file.close()
-            return df
+
+            return data
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while dropping rows with NaN values {e}")
-            self.file.close()
 
 
-    def mapping(self, column_name):
+
+    def mapping(self, data, column_name):
         """
               Method Name: mapping
               Description: This method does the mapping of given column_values into below specified integer values
@@ -158,21 +166,19 @@ class Preprocessor:
         """
 
         try:
-            onlyfiles = [f for f in listdir(self.input_file)]
-            for files in onlyfiles:
-                df = pd.read_csv(self.input_file + "/" + files)
-                df[column_name] = df[column_name].map({'non-stop': 0, '1 stop': 1, '2 stops': 2, '3 stops': 3, '4 stops': 4})
-                df[column_name] = df[column_name].astype('int')
+            data[column_name] = data[column_name].map({'non-stop': 0, '1 stop': 1, '2 stops': 2, '3 stops': 3, '4 stops': 4})
+            data[column_name] = data[column_name].astype('int')
             self.logger.log(self.file, "Mapping of the values are successful....!!")
-            self.file.close()
-            return df
+
+
+            return data
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while mapping values {e}")
-            self.file.close()
 
 
-    def merging_values(self, column_name, value_to_be_replaced, value_to_replace):
+
+    def merging_values(self, data, column_name, value_to_be_replaced, value_to_replace):
         """
                Method Name: merging_values
                Description: This method does the merging of the values of given column
@@ -180,20 +186,17 @@ class Preprocessor:
         """
 
         try:
-            onlyfiles = [f for f in listdir(self.input_file)]
-            for files in onlyfiles:
-                df = pd.read_csv(self.input_file + "/" + files)
-                df[column_name] = df[column_name].replace(value_to_be_replaced, value_to_replace)
+            data[column_name] = data[column_name].replace(value_to_be_replaced, value_to_replace)
             self.logger.log(self.file, "Merging of the values are successful....!!")
-            self.file.close()
-            return df
+
+            return data
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while merging values {e}")
-            self.file.close()
 
 
-    def remove_row(self, value):
+
+    def remove_row(self, data, value):
 
         """
              Method Name: remove_row
@@ -202,17 +205,14 @@ class Preprocessor:
         """
 
         try:
-            onlyfiles = [f for f in listdir(self.input_file)]
-            for files in onlyfiles:
-                df = pd.read_csv(self.input_file + "/" + files)
-                df.drop(df.loc[df['Duration'] == value].index, inplace=True)
-            self.logger.log(self.file, f"removal of the rows with {value} on 'Duration' column are successful....!!")
-            self.file.close()
+
+            df = data.drop(data.loc[data['Duration'] == value].index)
+            self.logger.log(self.file, f"removal of the rows with 'Duration' column are successful....!!")
             return df
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while merging values {e}")
-            self.file.close()
+
 
     def convert_to_minutes(self, data):
 
@@ -235,7 +235,7 @@ class Preprocessor:
         except Exception as e:
 
             self.logger.log(self.file, f"Error occurred while removing values {e}")
-            self.file.close()
+
 
 
 
@@ -253,12 +253,12 @@ class Preprocessor:
                 df = pd.read_csv(self.input_file + "/" + files)
                 df[column_name] = df[column_name].apply(self.convert_to_minutes)
             self.logger.log(self.file, "Conversion of column values into minutes are successful....!!")
-            self.file.close()
+
             return df
 
         except Exception as e:
             self.logger.log(self.file, f"Error while converting column values into minutes {e}")
-            self.file.close()
+
 
 
 
@@ -276,15 +276,15 @@ class Preprocessor:
                 df = pd.read_csv(self.input_file + "/" + files)
                 df[column_name] = encoder.fit_transform(df[column_name])
             self.logger.log(self.file, "Label Encoding of the values are successful....!!")
-            self.file.close()
+
             return df
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while label encoding {e}")
-            self.file.close()
 
 
-    def drop_rows_based_on_value_count(self, column_name, value):
+
+    def drop_rows_based_on_value_count(self, data, column_name, value):
         """
              Method Name: column_value_into_minutes
              Description: This method does the conversion of time into minutes of specified column
@@ -292,18 +292,16 @@ class Preprocessor:
         """
 
         try:
-            onlyfiles = [f for f in listdir(self.input_file)]
-            for files in onlyfiles:
-                df = pd.read_csv(self.input_file + "/" + files)
-                count = df[column_name].value_counts()
-                df = df[~df[column_name].isin(count[count < int(value)].index)]
+
+            count = data[column_name].value_counts()
+            df = data[~data[column_name].isin(count[count < int(value)].index)]
             #self.logger.log(self.file, "Dropping of the row based on value_counts are successful....!!")
-            #self.file.close()
+
             return df
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while dropping records based on value_counts {e}")
-            self.file.close()
+
 
     def separate_label_feature(self, data, label_column):
         """
@@ -384,12 +382,12 @@ class Preprocessor:
                 col_transformer = ColumnTransformer([('OHE', encoder, [column_name])], remainder='passthrough')
                 df = col_transformer.fit_transform(df)
             #self.logger.log(self.file, "Label Encoding of the values are successful....!!")
-            #self.file.close()
+
             return df
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while label encoding {e}")
-            self.file.close()
+
 
 
     def impute_missing_values(self, data):
@@ -432,7 +430,7 @@ class Preprocessor:
         self.data_n = data.describe()
         self.col_to_drop=[]
         try:
-            for x in self.columns:
+            for x in self.col_to_drop:
                 if (self.data_n[x]['std'] == 0): # check if standard deviation is zero
                     self.col_to_drop.append(x)  # prepare the list of columns with standard deviation zero
             self.logger.log(self.file, 'Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class')
