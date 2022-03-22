@@ -5,7 +5,7 @@ This is the Entry point for Training the Machine Learning Model.
 from sklearn.model_selection import train_test_split
 from Data_Ingestion.data_loader import DataGetter
 from Data_Preprocessing.preprocessing import Preprocessor
-from File_Operation.file_methods import File_Opeartion
+from File_Operation.file_methods import File_Operation
 from Data_Preprocessing.clustering import KMeansClustering
 from Best_Model_Finder.tuner import ModelFinder
 from application_logger.logging import AppLogger
@@ -81,12 +81,13 @@ class TrainModel:
 
             # Dropping Route and ID columns
             data = preprocessor.drop_column(data, ['Route', 'ID'])
+            data = data.reset_index(drop = True)
 
             # Separating Features and label
             train_x, train_y = preprocessor.separate_label_feature(data, 'Price')
 
             # Encoding categorical variables using Onehot Encoding Technique
-            train_x = preprocessor.onehot_encoder(data, ['Airline', 'Source', 'Destination', 'Arrival_Time', 'Dep_Time', 'Additional_Info'])
+            train_x = preprocessor.onehot_encoder(train_x, ['Airline', 'Source', 'Destination', 'Arrival_Time', 'Dep_Time', 'Additional_Info'])
 
 
 
@@ -105,7 +106,7 @@ class TrainModel:
             # Dividing the data into clusters
             train_x = kmeans.create_clusters(train_x, number_of_clusters)
             preprocessed_training_data = pd.DataFrame(train_x)
-            preprocessed_training_data = preprocessed_training_data.rename(columns={35: "Cluster"})
+            preprocessed_training_data = preprocessed_training_data.rename(columns={34: "Cluster"})
 
             preprocessed_training_data['Price'] = train_y
 
@@ -117,15 +118,31 @@ class TrainModel:
             for cluster in list_of_cluster:
 
                 cluster_data = preprocessed_training_data[preprocessed_training_data['Cluster'] == cluster]
+                #cluster_data = cluster_data.reset_index(drop= True)
 
+                # Prepare the feature and Label columns
+                cluster_features = cluster_data.drop(['Price', 'Cluster'], axis=1)
+                cluster_label = cluster_data['Price']
 
+                # splitting the data into training and test set for each cluster one by one
+                x_train, x_test, y_train, y_test = train_test_split(cluster_features, cluster_label, test_size= .30, random_state=369)
 
+                model_finder = ModelFinder(self.file, self.logger)  # object initialization
 
+                # getting the best model for each of the clusters
+                best_model_name, best_model, error_value = model_finder.get_best_model(x_train, y_train, x_test, y_test)
 
+                print(best_model_name)
+                print(best_model)
+                print(error_value)
 
+                # saving the best model to the directory.
+                file_op = File_Operation(self.file, self.logger)
+                save_model = file_op.save_model(best_model, best_model_name + str(cluster))
 
-
-
+                # logging the successful Training
+            self.logger.log(self.file, 'Successful End of Training')
+            self.file.close()
 
 
         except Exception as e:

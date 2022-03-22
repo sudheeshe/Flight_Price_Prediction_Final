@@ -121,9 +121,16 @@ class ModelFinder:
 
             # comparing the two models
             if (self.error_LR < self.error_RF):
-                return 'RandomForestRegressor', self.RF_Reg
+                self.logger.log(self.file, f"The Best Model is 'LinearRegression', {self.Linear_Reg} , Error of LR is {self.error_LR} and RF is {self.error_RF}")
+                return 'LinearRegression', self.Linear_Reg , f"Error of LR is {self.error_LR } and RF is {self.error_RF}"
+
+            elif (self.error_LR == self.error_RF):
+                self.logger.log(self.file, f"Both Model have same error So choose either among them as final model , Error of LR is {self.error_LR} and RF is {self.error_RF}")
+                return 'both have same error'
+
             else:
-                return 'LinearRegression', self.Linear_Reg
+                self.logger.log(self.file, f"The Best Model is 'RF Regressor', {self.RF_Reg} , Error of LR is {self.error_LR} and RF is {self.error_RF}")
+                return 'RandomForest Regressor', self.RF_Reg, f"Error of LR is {self.error_LR } and RF is {self.error_RF}"
 
         except Exception as e:
             self.logger.log(self.file, f'Exception occured in get_best_model method of the ModelFinder class. Exception message: {e}')

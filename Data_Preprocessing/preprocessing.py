@@ -308,10 +308,10 @@ class Preprocessor:
         self.logger.log(self.file, 'Entered the separate_label_feature method of the Preprocessor class')
 
         try:
-            self.X =data.drop(labels = label_column, axis = 'columns')
-            self.Y = data[label_column]
+            X = data.drop(labels = label_column, axis = 'columns')
+            Y = data[label_column]
             self.logger.log(self.file,'Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class')
-            return self.X, self.Y
+            return X, Y
 
         except Exception as e:
             self.logger.log(self.file,f'Exception occured in separate_label_feature method of the Preprocessor class. Exception message: {e}')
