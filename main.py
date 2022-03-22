@@ -44,6 +44,22 @@ from training_model import TrainModel
 #a = KMeansClustering(file, logger)
 #a.elbow_plot(d)
 
-a = TrainModel()
+#a = TrainModel()
 
-a.training_model()
+#a.training_model()
+
+
+
+
+##### Prediction ####
+
+from Prediction_Raw_Rata_Validation.predictionDataValidation import PredictionDataValidation
+
+a = PredictionDataValidation('Prediction_Batch_Files/')
+
+LengthOfYearStampInFile, column_names, NumberOfColumns = a.values_from_schema()
+
+regex = a.manual_regex_creation()
+a.create_directory_for_GoodBadRaw_data()
+
+a.validation_file_name_raw(regex,LengthOfYearStampInFile)

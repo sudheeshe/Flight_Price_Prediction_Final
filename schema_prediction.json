@@ -1,6 +1,6 @@
 { "SampleFileName" : "data_2019.csv",
-  "LengthYearStampInFile" : 4,
-  "NumberOfColumns" : 11,
+  "LengthOfYearStampInFile" : 4,
+  "NumberOfColumns" : 10,
   "ColName" : {
     "Airline" : "VARCHAR",
     "Date_of_Journey" : "VARCHAR",
@@ -8,7 +8,8 @@
     "Destination" : "VARCHAR",
     "Route" : "VARCHAR",
     "Dep_Time" : "VARCHAR",
-    "Arrival_Time" : "VARCHAR","Duration" : "VARCHAR",
+    "Arrival_Time" : "VARCHAR",
+    "Duration" : "VARCHAR",
     "Total_Stops" : "VARCHAR",
     "Additional_Info" : "VARCHAR"
 

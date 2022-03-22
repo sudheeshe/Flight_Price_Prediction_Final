@@ -274,7 +274,7 @@ class RawDataValidation:
         """
 
         try:
-            file = open("Training_Logs/missingValuesInColumn.txt", 'a+')
+            file = open("Training_Logs/missingValuesInWholeColumnLog.txt", 'a+')
             self.logger.log(file,"Missing Values Validation Started!!")
 
             path = 'Training_Raw_Files_Validated/Good_Raw/'
@@ -286,7 +286,7 @@ class RawDataValidation:
                         self.logger.log(file,"File is invalid, an entire column have null values, File moved to Bad_Raw")
 
         except Exception as e:
-            file = open('Training_Logs/MissinValuesInWholeColumnLog.txt', "a+")
+            file = open('Training_Logs/missingValuesInWholeColumnLog.txt', "a+")
             self.logger.log(file, f"Error while validating missing values in entire column {e}")
             file.close()
 
