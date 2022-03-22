@@ -9,6 +9,7 @@ from File_Operation.file_methods import File_Opeartion
 from Data_Preprocessing.clustering import KMeansClustering
 from Best_Model_Finder.tuner import ModelFinder
 from application_logger.logging import AppLogger
+import pandas as pd
 
 
 class TrainModel:
@@ -103,6 +104,21 @@ class TrainModel:
 
             # Dividing the data into clusters
             train_x = kmeans.create_clusters(train_x, number_of_clusters)
+            preprocessed_training_data = pd.DataFrame(train_x)
+            preprocessed_training_data = preprocessed_training_data.rename(columns={35: "Cluster"})
+
+            preprocessed_training_data['Price'] = train_y
+
+            list_of_cluster = preprocessed_training_data['Cluster'].unique()
+
+
+            ####### parsing all the clusters and looking for the best ML algorithm to fit on individual cluster ########
+
+            for cluster in list_of_cluster:
+
+                cluster_data = preprocessed_training_data[preprocessed_training_data['Cluster'] == cluster]
+
+
 
 
 

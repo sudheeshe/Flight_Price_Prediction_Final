@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
+import numpy as np
 from sklearn.cluster import KMeans
 from kneed import KneeLocator
+import pandas as pd
 from File_Operation.file_methods import File_Opeartion
 
 class KMeansClustering:
@@ -63,7 +65,9 @@ class KMeansClustering:
             self.y_kmeans = self.kmeans.fit_predict(data)  # divide data into clusters
             self.file_oper = File_Opeartion(self.file, self.logger)
             self.saving_model = self.file_oper.save_model(self.kmeans, 'KMeans')
-            self.data['Cluster'] = self.y_kmeans #This creates a new column in dataframe for storing the cluster info
+
+            p = self.y_kmeans.reshape(self.data.shape[0],1)
+            self.data = np.column_stack((self.data, p))
             self.logger.log(self.file, f'succesfully created {self.kn.knee} clusters. Exited the create_clusters method of the KMeansClustering class')
             return self.data
 
