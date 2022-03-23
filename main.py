@@ -1,5 +1,5 @@
 from DataType_Validation_Insertion_Training.DataTypeValidation import DBOperation
-from DataTransfrom_Training.DataTransformation import DataTransform
+from DataTransfrom_Training.DataTransformation_Training import DataTransform
 from Training_raw_data_validation.rawValidation import RawDataValidation
 import pandas as pd
 from training_validation_insertion import TrainValidation
@@ -54,10 +54,10 @@ from training_model import TrainModel
 ##### Prediction ####
 
 from Prediction_Raw_Rata_Validation.predictionDataValidation import PredictionDataValidation
-from DataTypeValidation_Insertion_Prediction.DataTypeValidationPrediction import DBOperation
+from DataType_Validation_Insertion_Prediction.DataTypeValidationPrediction import DBOperation
 
-a = PredictionDataValidation('Prediction_Batch_Files/')
-LengthOfYearStampInFile, column_names, NumberOfColumns = a.values_from_schema()
+#a = PredictionDataValidation('Prediction_Batch_Files/')
+#LengthOfYearStampInFile, column_names, NumberOfColumns = a.values_from_schema()
 #regex = a.manual_regex_creation()
 #a.create_directory_for_GoodBadRaw_data()
 #a.validation_file_name_raw(regex,LengthOfYearStampInFile)
@@ -65,10 +65,15 @@ LengthOfYearStampInFile, column_names, NumberOfColumns = a.values_from_schema()
 #a.validate_missing_values_in_whole_columns()
 #a.move_BadFiles_to_Archive()
 
-x = DBOperation()
-x.database_connection('flight_price_prediction')
-x.create_table_in_db(column_names)
-x.insert_data_to_db_table('flight_price_prediction', column_names)
+#x = DBOperation()
+#x.database_connection('flight_price_prediction')
+#x.create_table_in_db(column_names)
+#x.insert_data_to_db_table('flight_price_prediction', column_names)
+
+from prediction_validation_insertion import PredictionValidation
+
+a = PredictionValidation('Prediction_Batch_Files/')
+a.prediction_validation()
 
 
 
