@@ -54,12 +54,21 @@ from training_model import TrainModel
 ##### Prediction ####
 
 from Prediction_Raw_Rata_Validation.predictionDataValidation import PredictionDataValidation
+from DataTypeValidation_Insertion_Prediction.DataTypeValidationPrediction import DBOperation
 
 a = PredictionDataValidation('Prediction_Batch_Files/')
-
 LengthOfYearStampInFile, column_names, NumberOfColumns = a.values_from_schema()
+#regex = a.manual_regex_creation()
+#a.create_directory_for_GoodBadRaw_data()
+#a.validation_file_name_raw(regex,LengthOfYearStampInFile)
+#a.validate_number_of_columns(NumberOfColumns)
+#a.validate_missing_values_in_whole_columns()
+#a.move_BadFiles_to_Archive()
 
-regex = a.manual_regex_creation()
-a.create_directory_for_GoodBadRaw_data()
+x = DBOperation()
+x.database_connection('flight_price_prediction')
+x.create_table_in_db(column_names)
+x.insert_data_to_db_table('flight_price_prediction', column_names)
 
-a.validation_file_name_raw(regex,LengthOfYearStampInFile)
+
+

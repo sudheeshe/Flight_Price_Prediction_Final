@@ -15,12 +15,12 @@ class DBOperation:
     """
 
     def __init__(self):
-        self.path = 'Training_Database/'
-        self.badFilePath = "Training_Raw_files_validated/Bad_Raw"
-        self.goodFilePath = "Training_Raw_files_validated/Good_Raw"
+        self.path = 'Prediction_Database/'
+        self.badFilePath = "Prediction_Raw_Files_Validated/Bad_Raw"
+        self.goodFilePath = "Prediction_Raw_Files_Validated/Good_Raw"
         self.database_name = 'flight_price_prediction'
         self.keyspace = 'flight_price_prediction_keyspace'
-        self.table_name = 'training_files'
+        self.table_name = 'prediction_files'
         self.logger = AppLogger()
 
     def database_connection(self, database_name):
@@ -35,18 +35,17 @@ class DBOperation:
             cloud_config = {
                 'secure_connect_bundle': r'D:\Ineuron\Project_workshop\Flight Price Prediction\Cassandra_Bundle\secure-connect-flight-price-prediction.zip'
             }
-            auth_provider = PlainTextAuthProvider('caqhALHQBBIUIZWptJlnouhX',
-                                                  '9M86beObXwhCR+_L,FSbYX4ZeF_nJ39.pjmDtn8Za-N3L9P+kJwrDxhP4MPZ_a4hRy3Z2FEnxRCI_5SNIJZPm6eJhAvDFG-7F-ZeqPGiqk-BCy+xOr1mZf043J4boBhS')
+            auth_provider = PlainTextAuthProvider('caqhALHQBBIUIZWptJlnouhX','9M86beObXwhCR+_L,FSbYX4ZeF_nJ39.pjmDtn8Za-N3L9P+kJwrDxhP4MPZ_a4hRy3Z2FEnxRCI_5SNIJZPm6eJhAvDFG-7F-ZeqPGiqk-BCy+xOr1mZf043J4boBhS')
             cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
             session = cluster.connect()
             row = session.execute("select release_version from system.local")
 
-            file = open("Training_Logs/DataBaseConnectionLog.txt", 'a+')
+            file = open("Prediction_Logs/DataBaseConnectionLog.txt", 'a+')
             self.logger.log(file, f"Connection Established successfully, release_version  is {row[0]}")
             file.close()
 
         except Exception as e:
-            file = open("Training_Logs/DataBaseConnectionLog.txt", 'a+')
+            file = open("Prediction_Logs/DataBaseConnectionLog.txt", 'a+')
             self.logger.log(file, f"Error while connecting to database: {e}")
             file.close()
             raise ConnectionError
@@ -66,7 +65,7 @@ class DBOperation:
             row = session.execute(f"USE {self.keyspace};")
             row = session.execute(f"DROP TABLE IF EXISTS {self.table_name};")
             # creating and additional column to make it as PRIMARY KEY
-            row = session.execute(f"CREATE TABLE {self.table_name}(Airline VARCHAR, Date_of_Journey VARCHAR, Source VARCHAR, Destination VARCHAR, Route VARCHAR, Dep_Time VARCHAR, Arrival_Time VARCHAR, Duration VARCHAR, Total_Stops VARCHAR, Additional_Info VARCHAR, Price INT, ID INT, PRIMARY KEY(Airline, Date_of_Journey, Source, Destination, Route, Dep_Time, Arrival_Time, Duration, Total_Stops, Additional_Info, Price, ID));")
+            row = session.execute(f"CREATE TABLE {self.table_name}(Airline VARCHAR, Date_of_Journey VARCHAR, Source VARCHAR, Destination VARCHAR, Route VARCHAR, Dep_Time VARCHAR, Arrival_Time VARCHAR, Duration VARCHAR, Total_Stops VARCHAR, Additional_Info VARCHAR, ID INT, PRIMARY KEY(Airline, Date_of_Journey, Source, Destination, Route, Dep_Time, Arrival_Time, Duration, Total_Stops, Additional_Info, ID));")
 
             # row = session.execute(f"CREATE TABLE {self.table_name} (ID VARCHAR PRIMARY KEY);")
 
@@ -77,12 +76,12 @@ class DBOperation:
             # else:
             # row = session.execute(f"ALTER TABLE {self.table_name} ADD ({key} {d_type});")
 
-            file = open("Training_Logs/DbTableCreateLog.txt", 'a+')
+            file = open("Prediction_Logs/DbTableCreateLog.txt", 'a+')
             self.logger.log(file, "Tables created successfully!!")
             file.close()
 
         except Exception as e:
-            file = open("Training_Logs/DbTableCreateLog.txt", 'a+')
+            file = open("Prediction_Logs/DbTableCreateLog.txt", 'a+')
             self.logger.log(file, f"Error while creating table:{e}")
             file.close()
             raise e
@@ -100,7 +99,7 @@ class DBOperation:
         goodFilePath = self.goodFilePath
         badFilePath = self.badFilePath
         onlyfiles = [f for f in listdir(goodFilePath)]
-        file = open("Training_Logs/DbInsertLog.txt", 'a+')
+        file = open("Prediction_Logs/DbInsertLog.txt", 'a+')
 
         try:
             for files in listdir(self.goodFilePath):
@@ -110,7 +109,7 @@ class DBOperation:
 
                 for h, i in data.iterrows():
                     try:
-                        session.execute(f"INSERT INTO {self.keyspace}.{self.table_name}(Airline, Date_of_Journey, Source, Destination, Route, Dep_Time, Arrival_Time, Duration, Total_Stops, Additional_Info, Price, ID) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",[i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7], i[8], i[9], int(i[10]), int(i[11])])
+                        session.execute(f"INSERT INTO {self.keyspace}.{self.table_name}(Airline, Date_of_Journey, Source, Destination, Route, Dep_Time, Arrival_Time, Duration, Total_Stops, Additional_Info, ID) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",[i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7], i[8], i[9], int(i[10])])
 
                     except Exception as e:
                         self.logger.log(file, f'Error occurred {e}')
@@ -131,17 +130,17 @@ class DBOperation:
               On Failure: Raise Exception
         """
 
-        self.filefrom_db = 'Training_FileFromDB/'
+        self.filefrom_db = 'Prediction_FileFromDB/'
         self.file_name = 'InputFile.csv'
 
-        file = open("Training_Logs/ExportToCsv.txt", 'a+')
+        file = open("Prediction_Logs/ExportToCsv.txt", 'a+')
 
         try:
             session = self.database_connection(database)
             results = session.execute(f'SELECT * FROM flight_price_prediction_keyspace.{self.table_name}')
 
             col_names = ['Airline', 'Date_of_Journey', 'Source', 'Destination', 'Route', 'Dep_Time',
-                         'Arrival_Time', 'Duration', 'Total_Stops', 'Additional_Info', 'Price', 'ID']
+                         'Arrival_Time', 'Duration', 'Total_Stops', 'Additional_Info', 'ID']
 
 
 
