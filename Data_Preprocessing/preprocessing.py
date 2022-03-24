@@ -6,6 +6,7 @@ from sklearn.compose import ColumnTransformer
 from datetime import datetime
 from os import listdir
 import os
+import json
 from application_logger.logging import AppLogger
 
 
@@ -34,7 +35,7 @@ class Preprocessor:
 
         try:
             #Converting 'Date_of_Journey' to datetime format
-            data[column_name] = pd.to_datetime(data[column_name], format = '%d-%m-%Y')
+            data[column_name] = pd.to_datetime(data[column_name], format = '%d/%m/%Y')
 
             # Creating 'Month_of_Journey' , 'Day_of_Journey', 'Year_of_Journey' columns
             data['Month_of_Journey'] = data[column_name].dt.month
@@ -288,11 +289,29 @@ class Preprocessor:
 
         try:
 
-            count = data[column_name].value_counts()
-            df = data[~data[column_name].isin(count[count < int(value)].index)]
+            list_ = []
+            for idx, name in enumerate(data[column_name].value_counts().index.tolist()):
+                if data[column_name].value_counts()[idx] < int(value):
+                    list_.append(name)
+
+            for names in list_:
+                data = data.drop(data.loc[data[column_name] == names].index)
+
+            #count = data[column_name].value_counts()
+            #df = data[~data[column_name].isin(count[count < int(value)].index)]
             #self.logger.log(self.file, "Dropping of the row based on value_counts are successful....!!")
 
-            return df
+            entry = {column_name : list_}
+            json_object  = json.dumps(entry)
+
+            with open('preprocessing_data.json', 'w+') as f:
+                f.write(json_object )
+
+
+
+
+
+            return data
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while dropping records based on value_counts {e}")

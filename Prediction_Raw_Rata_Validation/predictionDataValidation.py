@@ -244,7 +244,8 @@ class PredictionDataValidation:
                 if data.shape[1] == number_of_columns:
                     pass
                 else:
-                    shutil.move("Prediction_Raw_Files_Validated/Good_Raw/" + file, "Prediction_Raw_Files_Validated/Bad_Raw")
+                    shutil.move("Prediction_Raw_Files_Validated/Good_Raw/" + file,
+                                "Prediction_Raw_Files_Validated/Bad_Raw")
                     self.logger.log(f, "Invalid Column Length for the file!! File moved to Bad Raw Folder :: %s" % file)
 
             self.logger.log(f, "Column Length Validation Completed!!")
@@ -286,5 +287,7 @@ class PredictionDataValidation:
             self.logger.log(file, f"Error while validating missing values in entire column {e}")
             file.close()
 
+    def delete_prediction_file(self):
 
-
+        if os.path.exists('Prediction_Output_File/Predictions.csv'):
+            os.remove('Prediction_Output_File/Predictions.csv')

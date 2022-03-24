@@ -12,7 +12,6 @@
     "Duration" : "VARCHAR",
     "Total_Stops" : "VARCHAR",
     "Additional_Info" : "VARCHAR"
-
   }
 
 }

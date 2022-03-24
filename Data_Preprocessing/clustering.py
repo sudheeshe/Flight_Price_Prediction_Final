@@ -49,7 +49,7 @@ class KMeansClustering:
 
 
 
-    def create_clusters(self, data, number_of_clusters):
+    def create_clusters(self, data, number_of_clusters, name_to_the_model):
         """
                 Method Name: create_clusters
                 Description: Create a new dataframe consisting of the cluster information.
@@ -64,7 +64,7 @@ class KMeansClustering:
             self.kmeans = KMeans(n_clusters=number_of_clusters, init='k-means++', random_state=42)
             self.y_kmeans = self.kmeans.fit_predict(data)  # divide data into clusters
             self.file_oper = File_Operation(self.file, self.logger)
-            self.saving_model = self.file_oper.save_model(self.kmeans, 'KMeans')
+            self.saving_model = self.file_oper.save_cluster_model(self.kmeans, name_to_the_model)
 
             p = self.y_kmeans.reshape(self.data.shape[0],1)
             self.data = np.column_stack((self.data, p))

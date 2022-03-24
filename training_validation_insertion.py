@@ -40,7 +40,7 @@ class TrainValidation:
             self.logger.log(self.file, f"Table created successfully on Cassandra DB ")
             self.logger.log(self.file, "Starting Insertion of Data into Table !!!!")
             # insert csv files in the table
-            self.db_operation.insert_data_to_db_table(self.database_name)
+            self.db_operation.insert_data_to_db_table(self.database_name, column_names)
             self.logger.log(self.file, "Data has been inserted successfully on Casandra!!!")
             self.logger.log(self.file, "Deleting Good Data Folder")
             # Delete the good data folder after loading files in table

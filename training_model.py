@@ -104,7 +104,7 @@ class TrainModel:
             number_of_clusters = kmeans.elbow_plot(train_x)
 
             # Dividing the data into clusters
-            train_x = kmeans.create_clusters(train_x, number_of_clusters)
+            train_x = kmeans.create_clusters(train_x, number_of_clusters, 'KMeans_Training')
             preprocessed_training_data = pd.DataFrame(train_x)
             preprocessed_training_data = preprocessed_training_data.rename(columns={34: "Cluster"})
 
