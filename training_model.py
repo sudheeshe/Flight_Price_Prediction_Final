@@ -89,6 +89,9 @@ class TrainModel:
             # Encoding categorical variables using Onehot Encoding Technique
             train_x = preprocessor.onehot_encoder(train_x, ['Airline', 'Source', 'Destination', 'Arrival_Time', 'Dep_Time', 'Additional_Info'])
 
+            #########
+            csv = pd.DataFrame(train_x)
+            csv.to_csv('final_train_x.csv', index=False)
 
 
             # if missing values are there, replace them appropriately.

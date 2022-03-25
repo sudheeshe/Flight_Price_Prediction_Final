@@ -6,6 +6,8 @@ from sklearn.compose import ColumnTransformer
 from datetime import datetime
 from os import listdir
 import os
+import re
+from pickle import dump
 import json
 from application_logger.logging import AppLogger
 
@@ -289,6 +291,10 @@ class Preprocessor:
 
         try:
 
+            # count = data[column_name].value_counts()
+            # df = data[~data[column_name].isin(count[count < int(value)].index)]
+            # self.logger.log(self.file, "Dropping of the row based on value_counts are successful....!!")
+
             list_ = []
             for idx, name in enumerate(data[column_name].value_counts().index.tolist()):
                 if data[column_name].value_counts()[idx] < int(value):
@@ -297,24 +303,52 @@ class Preprocessor:
             for names in list_:
                 data = data.drop(data.loc[data[column_name] == names].index)
 
-            #count = data[column_name].value_counts()
-            #df = data[~data[column_name].isin(count[count < int(value)].index)]
-            #self.logger.log(self.file, "Dropping of the row based on value_counts are successful....!!")
+            Dict = {}
+            Dict[column_name] = list_
+            if os.path.exists("preprocessing_data.json"):
+                os.remove("preprocessing_data.json")
 
-            entry = {column_name : list_}
-            json_object  = json.dumps(entry)
-
-            with open('preprocessing_data.json', 'w+') as f:
-                f.write(json_object )
-
-
-
-
+            with open('preprocessing_data.json', 'a+') as f:
+                x = Dict
+                f.write(f"{x},\n")
 
             return data
 
         except Exception as e:
             self.logger.log(self.file, f"Error occurred while dropping records based on value_counts {e}")
+
+    def rows_to_delete_in_prediction_file(self, data):
+
+        """     Method Name: rows_to_delete_in_prediction_file
+               Description: This method deletes the rows based on value_counts in which training file got removed.
+               Output: Returns two separate Dataframes,
+               On Failure: Raise Exception
+        """
+        path = 'preprocessing_data.json'
+
+        Dic = {}
+        with open(path, 'r') as f:
+            for i in f:
+                # print(i)
+                a, b = i.split(':')
+                a = a.replace('{', "")
+                a = a.replace("'", "")
+
+                b = b.replace('}', "")
+                b = b.replace(" [", "[")
+                b = b.replace(r"\n'", "")
+                Dic[a] = b
+
+        regex = "'.*?'"  # this matches the string within ' '
+        for i in Dic.values():
+            x = re.findall(regex, i)
+            dic_value = [sub.replace("'", "") for sub in x]
+            for keys in Dic.keys():
+                for values in dic_value:
+                    data = data.drop(data.loc[data[keys] == values].index)
+
+        return data
+
 
 
     def separate_label_feature(self, data, label_column):
@@ -390,8 +424,12 @@ class Preprocessor:
 
         try:
             encoder = OneHotEncoder(dtype=int, handle_unknown='ignore')
-            col_transformer = ColumnTransformer([('OHE', encoder, column_name)], remainder='passthrough')
-            data = col_transformer.fit_transform(data)
+            col_transformer = ColumnTransformer([('OHE', encoder, column_name)], remainder='passthrough') #we’ll name the transformer simply “OHE”
+            transformer = col_transformer.fit(data)
+            dump(col_transformer, open('Pickle_Files/onehot_encoder.pkl', 'wb'))
+            data = transformer.transform(data)
+
+
             #self.logger.log(self.file, "Label Encoding of the values are successful....!!")
 
             return data

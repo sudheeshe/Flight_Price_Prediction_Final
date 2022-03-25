@@ -6,6 +6,7 @@ from Data_Ingestion.data_loader_prediction import DataGetter_Prediction
 from application_logger.logging import AppLogger
 from Prediction_Raw_Rata_Validation.predictionDataValidation import PredictionDataValidation
 import os
+from pickle import load
 
 
 
@@ -58,9 +59,7 @@ class Prediction:
             data = preprocessor.remove_row(data, '5m')
 
             # removing rows with have minimum occurrence
-            data = preprocessor.drop_rows_based_on_value_count(data, 'Airline', '15')
-            data = preprocessor.drop_rows_based_on_value_count(data, 'Additional_Info', '20')
-            data = preprocessor.drop_rows_based_on_value_count(data, 'Total_Stops', '50')
+            data = preprocessor.rows_to_delete_in_prediction_file(data)
 
             # Merging values in Additional_Info & Destination columns
             data = preprocessor.merging_values(data, 'Additional_Info', 'No Info', 'No info')
@@ -86,8 +85,8 @@ class Prediction:
 
 
             # Encoding categorical variables using Onehot Encoding Technique
-            test_x = preprocessor.onehot_encoder(data, ['Airline', 'Source', 'Destination', 'Arrival_Time', 'Dep_Time', 'Additional_Info'])
-
+            scaler = load(open('Pickle_Files/onehot_encoder.pkl', 'rb'))
+            test_x = scaler.transform(data)
 
             ###################################### APPLYING CLUSTERING ###########################################
 
