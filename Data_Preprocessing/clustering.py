@@ -4,6 +4,7 @@ from sklearn.cluster import KMeans
 from kneed import KneeLocator
 import pandas as pd
 from File_Operation.file_methods import File_Operation
+from pickle import dump
 
 class KMeansClustering:
     """
@@ -62,13 +63,17 @@ class KMeansClustering:
 
         try:
             self.kmeans = KMeans(n_clusters=number_of_clusters, init='k-means++', random_state=42)
-            self.y_kmeans = self.kmeans.fit_predict(data)  # divide data into clusters
+            transformer = self.kmeans.fit(data)
+            dump(self.kmeans, open('Pickle_Files/Kmeans_cluster.pkl', 'wb'))
+            self.y_kmeans = transformer.fit_predict(data)  # divide data into clusters
+
             self.file_oper = File_Operation(self.file, self.logger)
             self.saving_model = self.file_oper.save_cluster_model(self.kmeans, name_to_the_model)
 
             p = self.y_kmeans.reshape(self.data.shape[0],1)
             self.data = np.column_stack((self.data, p))
             self.logger.log(self.file, f'succesfully created {self.kn.knee} clusters. Exited the create_clusters method of the KMeansClustering class')
+
             return self.data
 
         except Exception as e:

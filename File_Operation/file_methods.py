@@ -83,6 +83,25 @@ class File_Operation:
             self.logger.log(self.file, f'Model File {filename} could not be saved. Exited the load_model method of the Model_Finder class')
             raise Exception()
 
+    def load_cluster_model(self, filename):
+
+        """
+               Method Name: load_model
+               Description: Load the model file to memory
+               Output: The Model file loaded in memory
+               On Failure: Raise Exception
+        """
+        self.logger.log(self.file, 'Entered the load_model method of the File_Operation class')
+        try:
+            model = pickle.load(open('Available_Cluster_Models/KMeans_Training/KMeans_Training.sav', 'rb'))
+            self.logger.log(self.file,f'Model File {filename} loaded. Exited the load_model method of the Model_Finder class')
+            return model
+
+        except Exception as e:
+            self.logger.log(self.file, f'Exception occured in load_model method of the Model_Finder class. Exception message: {e}')
+            self.logger.log(self.file, f'Model File {filename} could not be saved. Exited the load_model method of the Model_Finder class')
+            raise Exception()
+
 
     def find_correct_model(self, cluster_number):
         """

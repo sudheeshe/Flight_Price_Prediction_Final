@@ -90,24 +90,24 @@ class Prediction:
 
             ###################################### APPLYING CLUSTERING ###########################################
 
-            kmeans = KMeansClustering(self.file, self.logger)
-            number_of_clusters = kmeans.elbow_plot(test_x)
+            file_loader = File_Operation(self.file, self.logger)
+            kmeans = file_loader.load_cluster_model('KMeans')
 
-            # Dividing the data into clusters
-            test_x = kmeans.create_clusters(test_x, number_of_clusters, 'KMeans_TPrediction')
+            clusters = kmeans.predict(test_x)
+
+
             preprocessed_testing_data = pd.DataFrame(test_x)
-            preprocessed_testing_data = preprocessed_testing_data.rename(columns={34: "Cluster"})
-
-            list_of_cluster = preprocessed_testing_data['Cluster'].unique()
+            preprocessed_testing_data['cluster'] = clusters
+            list_of_cluster = preprocessed_testing_data['cluster'].unique()
 
             ####### parsing all the clusters and looking for the best ML algorithm to fit on individual cluster ########
 
             for cluster in list_of_cluster:
-                cluster_data = preprocessed_testing_data[preprocessed_testing_data['Cluster'] == cluster]
+                cluster_data = preprocessed_testing_data[preprocessed_testing_data['cluster'] == cluster]
                 # cluster_data = cluster_data.reset_index(drop= True)
 
                 # Prepare the feature and Label columns
-                cluster_data = cluster_data.drop('Cluster', axis=1)
+                cluster_data = cluster_data.drop('cluster', axis=1)
 
                 file_ops = File_Operation(self.file, self.logger)
 
