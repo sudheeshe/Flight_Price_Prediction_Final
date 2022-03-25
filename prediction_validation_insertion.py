@@ -55,8 +55,5 @@ class PredictionValidation:
             self.file.close()
 
 
-
-
-
         except Exception as e:
             raise e
