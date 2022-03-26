@@ -38,7 +38,6 @@ def train_route_client():
         return Response("Training Successful")
 
     except Exception as e:
-        print(e)
         return f"Error occurred while training: {e}"
 
 @app.route("/predict", methods = ['GET', 'POST'])
