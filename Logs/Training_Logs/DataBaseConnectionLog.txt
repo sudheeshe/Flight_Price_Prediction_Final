@@ -1,0 +1,4 @@
+2022-03-25/23:24:18		Connection Established successfully, release_version  is Row(release_version='4.0.0.6816')
+2022-03-25/23:24:36		Connection Established successfully, release_version  is Row(release_version='4.0.0.6816')
+2022-03-25/23:32:24		Connection Established successfully, release_version  is Row(release_version='4.0.0.6816')
+2022-03-26/16:27:51		Error while connecting to database: [WinError 32] The process cannot access the file because it is being used by another process: 'D:\\Ineuron\\Project_workshop\\Flight Price Prediction\\Cassandra_Bundle\\tmpx1n5xw3s\\ca.crt'

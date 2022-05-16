@@ -1,0 +1,12 @@
+2022-03-25/23:33:57		Connection Established successfully, release_version  is Row(release_version='4.0.0.6816')
+2022-03-25/23:34:30		Error while connecting to database: ('Unable to connect to any servers', {'17ff160d-f51f-4ee3-aaf7-b260090d7aed-asia-south1.db.astra.datastax.com:29042:ec8528d5-3daa-4823-8d49-32213cda9b6f': OSError(None, "Tried connecting to [('34.100.132.76', 29042)]. Last error: _ssl.c:835: The handshake operation timed out"), '17ff160d-f51f-4ee3-aaf7-b260090d7aed-asia-south1.db.astra.datastax.com:29042:40e9f3fc-6ff1-42aa-a380-94f518e82215': OperationTimedOut('errors=None, last_host=None',), '17ff160d-f51f-4ee3-aaf7-b260090d7aed-asia-south1.db.astra.datastax.com:29042:1d2acbb5-0701-45c2-99b5-f054e9f82da0': OperationTimedOut('errors=Timed out creating connection (5 seconds), last_host=None',)})
+2022-03-25/23:35:06		Connection Established successfully, release_version  is Row(release_version='4.0.0.6816')
+2022-03-25/23:35:23		Connection Established successfully, release_version  is Row(release_version='4.0.0.6816')
+2022-03-25/23:44:07		Error while connecting to database: ('Unable to connect to any servers', {'17ff160d-f51f-4ee3-aaf7-b260090d7aed-asia-south1.db.astra.datastax.com:29042:40e9f3fc-6ff1-42aa-a380-94f518e82215': OperationTimedOut('errors=None, last_host=None',), '17ff160d-f51f-4ee3-aaf7-b260090d7aed-asia-south1.db.astra.datastax.com:29042:1d2acbb5-0701-45c2-99b5-f054e9f82da0': OperationTimedOut('errors=None, last_host=None',), '17ff160d-f51f-4ee3-aaf7-b260090d7aed-asia-south1.db.astra.datastax.com:29042:ec8528d5-3daa-4823-8d49-32213cda9b6f': OperationTimedOut('errors=None, last_host=None',)})
+2022-03-26/16:19:01		Connection Established successfully, release_version  is Row(release_version='4.0.0.6816')
+2022-03-26/16:19:44		Connection Established successfully, release_version  is Row(release_version='4.0.0.6816')
+2022-03-26/16:19:55		Connection Established successfully, release_version  is Row(release_version='4.0.0.6816')
+2022-05-10/10:55:27		Error while connecting to database: Unable to connect to the metadata service at https://17ff160d-f51f-4ee3-aaf7-b260090d7aed-asia-south1.db.astra.datastax.com:29080/metadata. Check the cluster status in the cloud console. 
+2022-05-10/11:03:35		Connection Established successfully, release_version  is Row(release_version='4.0.0.6816')
+2022-05-10/11:04:30		Connection Established successfully, release_version  is Row(release_version='4.0.0.6816')
+2022-05-10/11:04:57		Connection Established successfully, release_version  is Row(release_version='4.0.0.6816')

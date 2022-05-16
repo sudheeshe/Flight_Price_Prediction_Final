@@ -1,0 +1,7 @@
+2022-03-25/23:34:06		Tables created successfully!!
+2022-03-25/23:35:09		Tables created successfully!!
+2022-03-26/16:19:11		Error while creating table:errors={'17ff160d-f51f-4ee3-aaf7-b260090d7aed-asia-south1.db.astra.datastax.com:29042:ec8528d5-3daa-4823-8d49-32213cda9b6f': 'Client request timeout. See Session.execute[_async](timeout)'}, last_host=17ff160d-f51f-4ee3-aaf7-b260090d7aed-asia-south1.db.astra.datastax.com:29042:ec8528d5-3daa-4823-8d49-32213cda9b6f
+2022-03-26/16:19:46		Tables created successfully!!
+2022-05-10/10:55:27		Error while creating table:
+2022-05-10/11:03:46		Error while creating table:errors={'17ff160d-f51f-4ee3-aaf7-b260090d7aed-asia-south1.db.astra.datastax.com:29042:f4da5e02-9732-449e-a858-5956d2543f96': 'Client request timeout. See Session.execute[_async](timeout)'}, last_host=17ff160d-f51f-4ee3-aaf7-b260090d7aed-asia-south1.db.astra.datastax.com:29042:f4da5e02-9732-449e-a858-5956d2543f96
+2022-05-10/11:04:35		Tables created successfully!!

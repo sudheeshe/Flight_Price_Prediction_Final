@@ -1,0 +1,31 @@
+2022-03-25/23:33:41		Start of Validation on files for prediction!!
+2022-03-25/23:33:42		Raw Data Validation Complete!!
+2022-03-25/23:33:42		Creating Prediction_Database and tables on the basis of given schema!!!
+2022-03-25/23:34:06		Table created successfully on Cassandra DB 
+2022-03-25/23:34:06		Starting Insertion of Data into Table !!!!
+2022-03-25/23:34:52		Start of Validation on files for prediction!!
+2022-03-25/23:34:55		Raw Data Validation Complete!!
+2022-03-25/23:34:55		Creating Prediction_Database and tables on the basis of given schema!!!
+2022-03-25/23:35:09		Table created successfully on Cassandra DB 
+2022-03-25/23:35:09		Starting Insertion of Data into Table !!!!
+2022-03-25/23:43:44		Data has been inserted successfully on Casandra!!!
+2022-03-25/23:43:44		Deleting Good Data Folder
+2022-03-25/23:43:44		Good_Data folder deleted!!!
+2022-03-25/23:43:44		Moving bad files to Archive and deleting Bad_Data folder!!!
+2022-03-25/23:43:44		Bad files moved to archive!! Bad folder Deleted!!
+2022-03-25/23:43:44		Validation Operation completed!!
+2022-03-25/23:43:44		Extracting csv file from table
+2022-03-26/16:18:39		Start of Validation on files for prediction!!
+2022-03-26/16:18:43		Raw Data Validation Complete!!
+2022-03-26/16:18:43		Creating Prediction_Database and tables on the basis of given schema!!!
+2022-05-10/10:55:19		Start of Validation on files for prediction!!
+2022-05-10/10:55:23		Raw Data Validation Complete!!
+2022-05-10/10:55:23		Creating Prediction_Database and tables on the basis of given schema!!!
+2022-05-10/11:03:16		Start of Validation on files for prediction!!
+2022-05-10/11:03:19		Raw Data Validation Complete!!
+2022-05-10/11:03:19		Creating Prediction_Database and tables on the basis of given schema!!!
+2022-05-10/11:04:01		Start of Validation on files for prediction!!
+2022-05-10/11:04:04		Raw Data Validation Complete!!
+2022-05-10/11:04:04		Creating Prediction_Database and tables on the basis of given schema!!!
+2022-05-10/11:04:35		Table created successfully on Cassandra DB 
+2022-05-10/11:04:35		Starting Insertion of Data into Table !!!!

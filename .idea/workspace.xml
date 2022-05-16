@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7c393321-91e8-4232-ada6-8edd952ed3c1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Flight Price Prediction_MLOps.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Flight Price Prediction.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Available_Cluster_Models/KMeans_Training/KMeans_Training.sav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Available_Trained_Models/RandomForest Regressor0/RandomForest Regressor0.sav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Available_Trained_Models/RandomForest Regressor1/RandomForest Regressor1.sav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Available_Trained_Models/RandomForest Regressor2/RandomForest Regressor2.sav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Best_Model_Finder/tuner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/data_2019.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransfrom_Prediction/DataTransformation_Prediction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataTransfrom_Training/DataTransformation_Training.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataType_Validation_Insertion_Prediction/DataTypeValidationPrediction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataType_Validation_Insertion_Training/DataTypeValidation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Ingestion/data_loader.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Ingestion/data_loader_prediction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Preprocessing/clustering.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data_Preprocessing/preprocessing.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDA/EDA Flight Price.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDA/Sample Notebooks/.ipynb_checkpoints/airfare-price-prediction-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDA/Sample Notebooks/.ipynb_checkpoints/eda-is-fun-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDA/Sample Notebooks/.ipynb_checkpoints/flight-price-prediction-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDA/Sample Notebooks/.ipynb_checkpoints/flight-price-prediction_sample_Notebook-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDA/Sample Notebooks/.ipynb_checkpoints/statistical-analysis-eda-for-flight-fare-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDA/Sample Notebooks/airfare-price-prediction.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDA/Sample Notebooks/eda-is-fun.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDA/Sample Notebooks/flight-price-prediction.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDA/Sample Notebooks/flight-price-prediction_sample_Notebook.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDA/Sample Notebooks/flight-ticket-prediction-eda-model.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDA/Sample Notebooks/notebook.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDA/Sample Notebooks/statistical-analysis-eda-for-flight-fare.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/File_Operation/file_methods.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pickle_Files/Kmeans_cluster.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pickle_Files/onehot_encoder.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PredictionArchivedBadData/BadData_2022-03-24_002642/data_2019 -.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prediction_Batch_Files/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prediction_Raw_Rata_Validation/predictionDataValidation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrainingArchiveBadData/BadData_2022-03-23_211311/data_2019 -.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrainingArchiveBadData/BadData_2022-03-23_235832/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrainingArchiveBadData/BadData_2022-03-23_235832/data_2019 -.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrainingArchiveBadData/BadData_2022-03-25_012351/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrainingArchiveBadData/BadData_2022-03-25_012351/data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrainingArchiveBadData/BadData_2022-03-25_233213/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_Raw_files_validated/Good_Raw/data_2019.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Training_raw_data_validation/rawValidation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_logger/logging.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/predictFromModel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction_validation_insertion.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema_prediction.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/schema_training.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test_script.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/training_model.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/training_validation_insertion.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="29EXg3HP3akuGrbjfIUbGnJDlxS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7c393321-91e8-4232-ada6-8edd952ed3c1" name="Changes" comment="" />
+      <created>1652679325824</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652679325824</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

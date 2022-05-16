@@ -1,0 +1,4 @@
+2022-03-25/23:24:07		LengthOfYearStampInFile : 4	NumberOfColumns: {NumberOfColumns}
+
+2022-03-26/16:27:46		LengthOfYearStampInFile : 4	NumberOfColumns: {NumberOfColumns}
+
