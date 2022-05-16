@@ -5,7 +5,7 @@ import re
 import json
 import shutil
 import pandas as pd
-from application_logger.logging import AppLogger
+from Src.Logging import AppLogger
 
 
 class RawDataValidation:

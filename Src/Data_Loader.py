@@ -1,5 +1,5 @@
 import pandas as pd
-from application_logger.logging import AppLogger
+from Src.Logging import AppLogger
 
 class DataGetter:
     """

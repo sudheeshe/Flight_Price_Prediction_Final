@@ -1,6 +1,6 @@
 from datetime import datetime
 from os import listdir
-from application_logger.logging import AppLogger
+from Src.Logging import AppLogger
 
 
 class DataTransform:

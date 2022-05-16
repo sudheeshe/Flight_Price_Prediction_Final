@@ -9,7 +9,7 @@ import os
 import re
 from pickle import dump
 import json
-from application_logger.logging import AppLogger
+from Src.Logging import AppLogger
 
 
 class Preprocessor:

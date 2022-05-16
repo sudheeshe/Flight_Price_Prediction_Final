@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.cluster import KMeans
 from kneed import KneeLocator
 import pandas as pd
-from File_Operation.file_methods import File_Operation
+from Src.File_Methods import File_Operation
 from pickle import dump
 
 class KMeansClustering:

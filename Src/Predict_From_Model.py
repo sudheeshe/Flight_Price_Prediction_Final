@@ -1,10 +1,9 @@
 import pandas as pd
-from File_Operation.file_methods import File_Operation
-from Data_Preprocessing.preprocessing import Preprocessor
-from Data_Preprocessing.clustering import KMeansClustering
-from Data_Ingestion.data_loader_prediction import DataGetter_Prediction
-from application_logger.logging import AppLogger
-from Prediction_Raw_Rata_Validation.predictionDataValidation import PredictionDataValidation
+from Src.File_Methods import File_Operation
+from Src.Preprocessing import Preprocessor
+from Src.Clustering import KMeansClustering
+from Src.Logging import AppLogger
+from Src.Prediction_Data_Validation import PredictionDataValidation
 import os
 from pickle import load
 
