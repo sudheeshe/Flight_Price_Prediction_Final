@@ -1,0 +1,34 @@
+base:
+  project: Flight_price_predition
+  random_state: 369
+  target_col: Price
+
+
+load_data:
+  raw_dataset_csv: Data/Training_Data/Training_Batch_Files/
+  archive_data: Data/Training_Data/Training_Archive_Bad_Data/
+  data_from_db: Data/Training_Data/Training_File_From_DB/InputFile.csv
+  validated_raw_data: Data/Training_Data/Training_Raw_Files_Validated/
+
+logs:
+  log_dir_training: Logs/Training_Logs
+  log_dir_prediction: Logs/Prediction_Logs
+
+
+schema_files:
+  training_schema_json: Schema/schema_training.json
+  prediction_schema_json: Schema/schema_prediction.json
+
+estimators:
+  ElasticNet:
+    params:
+      # alpha: 0.88
+      # l1_ratio: 0.89
+      alpha: 0.9
+      l1_ratio: 0.4
+model_dir: Models/Available_Prediction_Models
+
+reports:
+  params: Reports/params.json
+  scores: Reports/scores.json
+

@@ -6,6 +6,7 @@ import json
 import shutil
 import pandas as pd
 from Src.Logging import AppLogger
+from Src.Read_Yaml import read_params
 
 
 class RawDataValidation:
@@ -15,7 +16,7 @@ class RawDataValidation:
 
     def __init__(self, path):
         self.Batch_directory = path
-        self.schema_path = 'schema_training.json'
+        self.schema = read_params('params.yaml')
         self.logger = AppLogger()
 
     def values_from_schema(self):
@@ -27,7 +28,7 @@ class RawDataValidation:
         """
 
         try:
-            with open(self.schema_path) as f:
+            with open(self.schema['schema_files']['training_schema_json']) as f:
                 dic = json.load(f)
 
             pattern = dic["SampleFileName"]
@@ -35,13 +36,13 @@ class RawDataValidation:
             column_names = dic['ColName']
             NumberOfColumns = dic['NumberOfColumns']
 
-            file = open("Training_Logs/valuesfromSchemaValidationLog.txt", 'a+')
-            message = f"LengthOfYearStampInFile : {LengthOfYearStampInFile}" + "\t" + "NumberOfColumns: {NumberOfColumns}" + "\n"
+            file = open(self.schema['logs']['log_dir_training'] + "/valuesfromSchemaValidationLog.txt", 'a+')
+            message = f"LengthOfYearStampInFile : {LengthOfYearStampInFile}" + "\t\t" + f"NumberOfColumns: {NumberOfColumns}" + "\t\t" + f"column_names: {column_names}" +"\n"
             self.logger.log(file, message)
             file.close()
 
         except Exception as e:
-            file = open("Training_Logs/valuesfromSchemaValidationLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_training'] + "/valuesfromSchemaValidationLog.txt", 'a+')
             self.logger.log(file, str(e))
             file.close()
             raise e
@@ -72,16 +73,14 @@ class RawDataValidation:
         """
 
         try:
-            path = os.path.join("Training_Raw_files_validated/", "Good_Raw/")
-            if not os.path.isdir(path):
-                os.makedirs(path)
+            path = os.path.join(self.schema['load_data']['validated_raw_data'], "Good_Raw/")
+            os.makedirs(path, exist_ok=True)
 
-            path = os.path.join("Training_Raw_files_validated/", "Bad_Raw/")
-            if not os.path.isdir(path):
-                os.makedirs(path)
+            path = os.path.join(self.schema['load_data']['validated_raw_data'], "Bad_Raw/")
+            os.makedirs(path, exist_ok=True)
 
         except Exception as e:
-            file = open("Training_Logs/GeneralLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_training'] + "/GeneralLog.txt", 'a+')
             self.logger.log(file, f"Error while creating Directory: {e}")
             file.close()
             raise e
@@ -97,15 +96,15 @@ class RawDataValidation:
 
         """
         try:
-            path = 'Training_Raw_files_validated/'
-            if os.path.isdir(path+ 'Good_Raw/'):
-                shutil.rmtree(path + 'Good_Raw/')
-                file = open("Training_Logs/GeneralLog.txt", 'a+')
+
+            if os.path.isdir(self.schema['load_data']['validated_raw_data'] + 'Good_Raw/'):
+                shutil.rmtree(self.schema['load_data']['validated_raw_data'] + 'Good_Raw/')
+                file = open(self.schema['logs']['log_dir_training'] + "/GeneralLog.txt", 'a+')
                 self.logger.log(file,"GoodRaw directory deleted successfully!!!")
                 file.close()
 
         except Exception as e:
-            file = open("Training_Logs/GeneralLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_training'] + "/GeneralLog.txt", 'a+')
             self.logger.log(file, f"Error while Deleting Directory : {e}")
             file.close()
             raise e
@@ -120,14 +119,14 @@ class RawDataValidation:
         """
 
         try:
-            path = 'Training_Raw_files_validated/'
-            if os.path.isdir(path + 'Bad_Raw/'):
-                shutil.rmtree(path + 'Bad_Raw/')
-                file = open("Training_Logs/GeneralLog.txt", 'a+')
+
+            if os.path.isdir(self.schema['load_data']['validated_raw_data'] + 'Bad_Raw/'):
+                shutil.rmtree(self.schema['load_data']['validated_raw_data'] + 'Bad_Raw/')
+                file = open(self.schema['logs']['log_dir_training'] + "/GeneralLog.txt", 'a+')
                 self.logger.log(file, "BadRaw directory deleted before starting validation!!!")
                 file.close()
         except Exception as e:
-            file = open("Training_Logs/GeneralLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_training'] + "/GeneralLog.txt", 'a+')
             self.logger.log(file, f"Error while Deleting Directory : {e}")
             file.close()
             raise e
@@ -148,28 +147,27 @@ class RawDataValidation:
         time = now.strftime("%H%M%S")
         try:
 
-            source = 'Training_Raw_files_validated/Bad_Raw/'
+            source = self.schema['load_data']['validated_raw_data'] + '/Bad_Raw/'
             if os.path.isdir(source):
-                path = "TrainingArchiveBadData/"
+                path = self.schema['load_data']['archive_data']
                 if not os.path.isdir(path):
                     os.makedirs(path)
-                dest = 'TrainingArchiveBadData/BadData_' + str(date)+"_"+str(time)
+                dest = path + '/BadData_' + str(date)+"_"+str(time)
                 if not os.path.isdir(dest):
                     os.makedirs(dest)
                 files = os.listdir(source)
                 for f in files:
                     if f not in os.listdir(dest):
                         shutil.move(source + f, dest)
-                file = open("Training_Logs/GeneralLog.txt", 'a+')
+                file = open(self.schema['logs']['log_dir_training'] + "/GeneralLog.txt", 'a+')
                 self.logger.log(file,"Bad files moved to archive")
-                path = 'Training_Raw_files_validated/'
-                if os.path.isdir(path + 'Bad_Raw/'):
+                if os.path.isdir(source + 'Bad_Raw/'):
                     shutil.rmtree(path + 'Bad_Raw/')
                 self.logger.log(file,"Bad Raw Data Folder Deleted successfully!!")
                 file.close()
 
         except Exception as e:
-            file = open("Training_Logs/GeneralLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_training'] + "/GeneralLog.txt", 'a+')
             self.logger.log(file, f"Error while moving bad files to archive: {e}")
             file.close()
             raise e
@@ -190,11 +188,12 @@ class RawDataValidation:
         self.delete_existing_Bad_data_training_folder()
         self.delete_existing_Good_data_training_folder()
 
-        onlyfiles = [f for f in listdir(self.Batch_directory)]
+        onlyfiles = [f for f in listdir(self.Batch_directory) if f.endswith('.xlsx')]
+
 
         try:
             self.create_directory_for_GoodBadRaw_data()
-            f = open("Training_Logs/nameValidationLog.txt", 'a+')
+            f = open(self.schema['logs']['log_dir_training'] + "/nameValidationLog.txt", 'a+')
 
             for filename in onlyfiles:
                 if (re.match(regex,filename)):
@@ -203,25 +202,25 @@ class RawDataValidation:
 
                     if (splitAt_[0]) == 'data':
                         if len(splitAt_[1]) == LengthOfYearStampInFile:
-                            shutil.copy(f"Training_Batch_Files/{filename}", "Training_Raw_files_validated/Good_Raw")
+                            shutil.copy(f"{self.schema['load_data']['raw_dataset_csv']}/{filename}", self.schema['load_data']['validated_raw_data']+"/Good_Raw")
                             self.logger.log(f, "Valid File name!! File moved to GoodRaw Folder :: %s" % filename)
 
                         else:
-                            shutil.copy("Training_Batch_Files/" + filename, "Training_Raw_files_validated/Bad_Raw")
+                            shutil.copy(self.schema['load_data']['raw_dataset_csv'] + filename, self.schema['load_data']['validated_raw_data'] + "/Bad_Raw")
                             self.logger.log(f, "Invalid File Name!! File moved to Bad Raw Folder :: %s" % filename)
 
                     else:
-                        shutil.copy("Training_Batch_Files/" + filename, "Training_Raw_files_validated/Bad_Raw")
+                        shutil.copy(self.schema['load_data']['raw_dataset_csv'] + filename, self.schema['load_data']['validated_raw_data'] + "/Bad_Raw")
                         self.logger.log(f, "Invalid File Name!! File moved to Bad Raw Folder :: %s" % filename)
                 else:
-                    shutil.copy("Training_Batch_Files/" + filename, "Training_Raw_files_validated/Bad_Raw")
+                    shutil.copy(self.schema['load_data']['raw_dataset_csv'] + filename, self.schema['load_data']['validated_raw_data'] + "/Bad_Raw")
                     self.logger.log(f, "Invalid File Name!! File moved to Bad Raw Folder :: %s" % filename)
 
             f.close()
 
 
         except Exception as e:
-            f = open("Training_Logs/nameValidationLog.txt", 'a+')
+            f = open(self.schema['logs']['log_dir_training'] + "/nameValidationLog.txt", 'a+')
             self.logger.log(f, f"Error occured while validating FileName {e}" )
             f.close()
             raise e
@@ -240,21 +239,24 @@ class RawDataValidation:
         """
 
         try:
-            f = open("Training_Logs/columnValidationLog.txt", 'a+')
+            f = open(self.schema['logs']['log_dir_training'] + "/columnValidationLog.txt", 'a+')
             self.logger.log(f, "Column Length Validation Started!!")
 
-            for file in listdir('Training_Raw_files_validated/Good_Raw/'):
-                data = pd.read_excel("Training_Raw_files_validated/Good_Raw/" + file, engine='openpyxl')
+            for file in listdir(self.schema['load_data']['validated_raw_data'] + 'Good_Raw/'):
+
+                data = pd.read_excel(self.schema['load_data']['validated_raw_data'] + 'Good_Raw/' + file, engine='openpyxl')
+                print(data.shape[1])
                 if data.shape[1] == number_of_columns:
+
                     pass
                 else:
-                    shutil.move("Training_Raw_files_validated/Good_Raw/" + file, "Training_Raw_files_validated/Bad_Raw")
+                    shutil.move(self.schema['load_data']['validated_raw_data'] + "Good_Raw/" + file, self.schema['load_data']['validated_raw_data'] + "Bad_Raw")
                     self.logger.log(f, "Invalid Column Length for the file!! File moved to Bad Raw Folder :: %s" % file)
 
             self.logger.log(f, "Column Length Validation Completed!!")
 
         except Exception as e:
-            f = open("Training_Logs/columnValidationLog.txt", 'a+')
+            f = open(self.schema['logs']['log_dir_training'] + "/columnValidationLog.txt", 'a+')
             self.logger.log(f, "Error Occured:: %s" % e)
             f.close()
             raise e
@@ -274,19 +276,19 @@ class RawDataValidation:
         """
 
         try:
-            file = open("Training_Logs/missingValuesInWholeColumnLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_training'] + "/missingValuesInWholeColumnLog.txt", 'a+')
             self.logger.log(file,"Missing Values Validation Started!!")
 
-            path = 'Training_Raw_Files_Validated/Good_Raw/'
+            path = self.schema['load_data']['validated_raw_data'] + 'Good_Raw/'
             for f in os.listdir(path):
                 data = pd.read_excel(path + f, engine='openpyxl')
                 for col in data.columns:
                     if data[col].isnull().all():
-                        shutil.move(path + f, 'Training_Raw_Files_Validated/Bad_Raw')
+                        shutil.move(path + f, self.schema['load_data']['validated_raw_data'] + '/Bad_Raw')
                         self.logger.log(file,"File is invalid, an entire column have null values, File moved to Bad_Raw")
 
         except Exception as e:
-            file = open('Training_Logs/missingValuesInWholeColumnLog.txt', "a+")
+            file = open(self.schema['logs']['log_dir_training'] + '/missingValuesInWholeColumnLog.txt', "a+")
             self.logger.log(file, f"Error while validating missing values in entire column {e}")
             file.close()
 

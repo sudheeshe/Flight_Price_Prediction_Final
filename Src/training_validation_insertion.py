@@ -57,8 +57,5 @@ class TrainValidation:
             self.file.close()
 
 
-
-
-
         except Exception as e:
             raise e
