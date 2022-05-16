@@ -3,12 +3,12 @@ This is the Entry point for Training the Machine Learning Model.
 """
 
 from sklearn.model_selection import train_test_split
-from Data_Ingestion.data_loader import DataGetter
-from Data_Preprocessing.preprocessing import Preprocessor
-from File_Operation.file_methods import File_Operation
-from Data_Preprocessing.clustering import KMeansClustering
-from Best_Model_Finder.tuner import ModelFinder
-from application_logger.logging import AppLogger
+from Src.Data_Loader import DataGetter
+from Src.Preprocessing import Preprocessor
+from Src.File_Methods import File_Operation
+from Src.Clustering import KMeansClustering
+from Src.Tuner import ModelFinder
+from Src.Logging import AppLogger
 import pandas as pd
 
 

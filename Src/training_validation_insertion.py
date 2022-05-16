@@ -1,8 +1,8 @@
 from datetime import datetime
-from Training_raw_data_validation.rawValidation import RawDataValidation
-from DataTransfrom_Training.DataTransformation_Training import DataTransform
-from DataType_Validation_Insertion_Training.DataTypeValidation import DBOperation
-from application_logger.logging import AppLogger
+from Src.Raw_Validation import RawDataValidation
+from Src.Data_Transformation_Training import DataTransform
+from Src.Data_Type_Validation import DBOperation
+from Src.Logging import AppLogger
 
 
 class TrainValidation:
