@@ -2,6 +2,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import mean_squared_error
 from sklearn.linear_model import LinearRegression
+from Src.Read_Yaml import read_params
 
 
 class ModelFinder:
@@ -10,6 +11,7 @@ class ModelFinder:
     """
 
     def __init__(self, file, logger):
+        self.schema = read_params('params.yaml')
         self.logger = logger
         self.file = file
         self.LR = LinearRegression()
@@ -26,15 +28,10 @@ class ModelFinder:
         self.logger.log(self.file,'Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class')
 
         try:
-            self.param_grid_RF = {
-                "n_estimators": [10, 20, 30],
-                "max_features": ["auto", "sqrt", "log2"],
-                "min_samples_split": [2, 4, 8],
-                "bootstrap": [True, False]
-            }
+            self.param_grid_RF = self.schema['estimators']['random_forest_regressor']['params']
 
             #Creating an object fro GridsearcCV
-            self.grid_search = GridSearchCV(self.RF, self.param_grid_RF, verbose=3, cv=5)
+            self.grid_search = GridSearchCV(self.RF, self.param_grid_RF, verbose= self.schema['random_forest_gridsearch_cv']['verbose'], cv=self.schema['random_forest_gridsearch_cv']['cv'])
             self.grid_search.fit(train_x, train_y)
 
             # extracting the best parameters
@@ -46,7 +43,7 @@ class ModelFinder:
             #Creating a Randomforest Model using best parameters
             self.best_rf_model = RandomForestRegressor(n_estimators= self.n_estimators, max_features= self.max_features, min_samples_split= self.min_samples_split, bootstrap= self.bootstrap)
             self.best_rf_model.fit(train_x, train_y)
-            self.logger.log(self.file,f"RandomForestRegressor's best params are : {self.grid_search.best_params_}, Exited the RandomForestReg method of the Model_Finder class")
+            self.logger.log(self.file,f"Random_Forest_Regressor's best params are : {self.grid_search.best_params_}, Exited the RandomForestReg method of the Model_Finder class")
             return self.best_rf_model
 
         except Exception as e:
@@ -66,14 +63,10 @@ class ModelFinder:
         self.logger.log(self.file,'Entered the get_best_params_of_linear_regressor method of the ModelFinder class')
 
         try:
-            self.param_grid_LR = {
-                'fit_intercept': [True, False],
-                'normalize': [True, False],
-                'copy_X': [True, False]
-            }
+            self.param_grid_LR = self.schema['estimators']['linear_regressor']['params']
 
             # Creating an object of the Grid Search class
-            self.grid_search = GridSearchCV(self.LR, self.param_grid_LR, verbose=3, cv=5)
+            self.grid_search = GridSearchCV(self.LR, self.param_grid_LR, verbose= self.schema['linear_regression_gridsearch_cv']['verbose'], cv=self.schema['linear_regression_gridsearch_cv']['cv'])
 
             # finding the best parameters
             self.grid_search.fit(train_x, train_y)

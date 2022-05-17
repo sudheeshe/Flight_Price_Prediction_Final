@@ -10,6 +10,7 @@ from Src.Clustering import KMeansClustering
 from Src.Tuner import ModelFinder
 from Src.Logging import AppLogger
 import pandas as pd
+from Src.Read_Yaml import read_params
 
 
 class TrainModel:
@@ -19,7 +20,8 @@ class TrainModel:
 
     def __init__(self):
         self.logger = AppLogger()
-        self.file = open("Training_Logs/ModelTrainingLog.txt", 'a+')
+        self.schema = read_params('params.yaml')
+        self.file = open(self.schema['logs']['log_dir_training'] + "/ModelTrainingLog.txt", 'a+')
 
 
     def training_model(self):
@@ -35,7 +37,7 @@ class TrainModel:
         try:
             # Getting the data from the source
             data_getter = DataGetter(self.file, self.logger)
-            data =  data_getter.get_data()
+            data = data_getter.get_data()
 
 
             ################################# PREPROCESSING AND FEATURE ENGINEERING ####################################
