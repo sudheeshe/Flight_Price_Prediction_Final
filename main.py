@@ -24,7 +24,7 @@ def home():
     return "Welcome to home page"
 
 
-@app.route("/train", methods = ['GET', 'POST'])
+@app.route("/train", methods = ['GET'])
 @cross_origin()
 def train_route_client():
 
@@ -66,18 +66,3 @@ if __name__ == '__main__':
     httpd = simple_server.make_server(host= '0.0.0.0', app = app, port = port)
     httpd.serve_forever()
     app.run()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

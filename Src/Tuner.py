@@ -31,7 +31,7 @@ class ModelFinder:
             self.param_grid_RF = self.schema['estimators']['random_forest_regressor']['params']
 
             #Creating an object fro GridsearcCV
-            self.grid_search = GridSearchCV(self.RF, self.param_grid_RF, verbose= self.schema['random_forest_gridsearch_cv']['verbose'], cv=self.schema['random_forest_gridsearch_cv']['cv'])
+            self.grid_search = GridSearchCV(self.RF, self.param_grid_RF, verbose= self.schema['estimators']['random_forest_regressor']['random_forest_gridsearch_cv']['verbose'], cv=self.schema['estimators']['random_forest_regressor']['random_forest_gridsearch_cv']['cv'])
             self.grid_search.fit(train_x, train_y)
 
             # extracting the best parameters
@@ -66,18 +66,16 @@ class ModelFinder:
             self.param_grid_LR = self.schema['estimators']['linear_regressor']['params']
 
             # Creating an object of the Grid Search class
-            self.grid_search = GridSearchCV(self.LR, self.param_grid_LR, verbose= self.schema['linear_regression_gridsearch_cv']['verbose'], cv=self.schema['linear_regression_gridsearch_cv']['cv'])
+            self.grid_search = GridSearchCV(self.LR, self.param_grid_LR, verbose= self.schema['estimators']['linear_regressor']['linear_regression_gridsearch_cv']['verbose'], cv=self.schema['estimators']['linear_regressor']['linear_regression_gridsearch_cv']['cv'])
 
             # finding the best parameters
             self.grid_search.fit(train_x, train_y)
 
             # extracting the best parameters
             self.fit_intercept = self.grid_search.best_params_['fit_intercept']
-            self.normalize = self.grid_search.best_params_['normalize']
-            self.copy_X = self.grid_search.best_params_['copy_X']
 
             # creating a new LR model with the best parameters
-            self.best_rf_model = LinearRegression(fit_intercept=self.fit_intercept, normalize=self.normalize,copy_X=self.copy_X)
+            self.best_rf_model = LinearRegression(fit_intercept=self.fit_intercept)
             # training the mew model
             self.best_rf_model.fit(train_x, train_y)
 
