@@ -1,15 +1,13 @@
 import pandas as pd
 import numpy as np
 from sklearn.impute import KNNImputer
-from sklearn.preprocessing import StandardScaler, LabelEncoder, OneHotEncoder
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 from sklearn.compose import ColumnTransformer
-from datetime import datetime
 from os import listdir
 import os
 import re
 from pickle import dump
-import json
-from Src.Logging import AppLogger
+from Src.Read_Yaml import read_params
 
 
 class Preprocessor:
@@ -19,7 +17,8 @@ class Preprocessor:
     """
 
     def __init__(self, file, logger):
-        self.input_file = 'Training_FileFromDB/'
+        self.schema = read_params('params.yaml')
+        self.input_file = self.schema['load_data']['data_from_db']
         self.logger = logger
         self.file = file
 
@@ -426,7 +425,7 @@ class Preprocessor:
             encoder = OneHotEncoder(dtype=int, handle_unknown='ignore')
             col_transformer = ColumnTransformer([('OHE', encoder, column_name)], remainder='passthrough') #we’ll name the transformer simply “OHE”
             transformer = col_transformer.fit(data)
-            dump(col_transformer, open('Pickle_Files/onehot_encoder.pkl', 'wb'))
+            dump(col_transformer, open(self.schema['transformation_pkl']['one_hot_encoder'], 'wb'))
             data = transformer.transform(data)
 
 

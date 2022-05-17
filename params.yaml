@@ -29,6 +29,10 @@ schema_files:
   training_schema_json: Schema/schema_training.json
   prediction_schema_json: Schema/schema_prediction.json
 
+transformation_pkl:
+  one_hot_encoder: Transformation/onehot_encoder.pkl
+  cluster: Transformation/Kmeans_cluster.pkl
+
 estimators:
   ElasticNet:
     params:
