@@ -8,7 +8,7 @@ from Src.Logging import AppLogger
 
 class TrainValidation:
     """
-    This method validates and transform the training data
+    This method validates and transform the training data and moves bad dat to archive
     """
 
     def __init__(self, path):
