@@ -7,6 +7,7 @@ import pandas as pd
 from Src.Logging import AppLogger
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
+from Src.Read_Yaml import read_params
 
 
 class DBOperation:
@@ -15,15 +16,16 @@ class DBOperation:
     """
 
     def __init__(self):
-        self.path = 'Training_Database/'
-        self.badFilePath = "Training_Raw_files_validated/Bad_Raw"
-        self.goodFilePath = "Training_Raw_files_validated/Good_Raw"
-        self.database_name = 'flight_price_prediction'
-        self.keyspace = 'flight_price_prediction_keyspace'
-        self.table_name = 'training_files'
+        self.schema = read_params('params.yaml')
+        #self.path = 'Training_Database/'
+        self.badFilePath = self.schema['load_data']['validated_raw_data'] + "Bad_Raw"
+        self.goodFilePath = self.schema['load_data']['validated_raw_data'] + "Good_Raw"
+        self.database_name = self.schema['data_base_info']['database_name']
+        self.keyspace = self.schema['data_base_info']['keyspace_name']
+        self.table_name = self.schema['data_base_info']['table_name']
         self.logger = AppLogger()
 
-    def database_connection(self, database_name):
+    def database_connection(self):
         """
               Method Name: database_connection
               Description: This method creates the database with the given name and if Database already exists then opens the connection to the DB.
@@ -33,15 +35,15 @@ class DBOperation:
 
         try:
             cloud_config = {
-                'secure_connect_bundle': r'D:\Ineuron\Project_workshop\Flight Price Prediction\Cassandra_Bundle\secure-connect-flight-price-prediction.zip'
+                'secure_connect_bundle': self.schema['data_base_info']['secure_connect_bundle']
             }
-            auth_provider = PlainTextAuthProvider('caqhALHQBBIUIZWptJlnouhX',
-                                                  '9M86beObXwhCR+_L,FSbYX4ZeF_nJ39.pjmDtn8Za-N3L9P+kJwrDxhP4MPZ_a4hRy3Z2FEnxRCI_5SNIJZPm6eJhAvDFG-7F-ZeqPGiqk-BCy+xOr1mZf043J4boBhS')
+            #auth_provider = PlainTextAuthProvider('caqhALHQBBIUIZWptJlnouhX', '9M86beObXwhCR+_L,FSbYX4ZeF_nJ39.pjmDtn8Za-N3L9P+kJwrDxhP4MPZ_a4hRy3Z2FEnxRCI_5SNIJZPm6eJhAvDFG-7F-ZeqPGiqk-BCy+xOr1mZf043J4boBhS')
+            auth_provider = PlainTextAuthProvider(self.schema['data_base_info']['client_id'], self.schema['data_base_info']['auth_provider'])
             cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
             session = cluster.connect()
             row = session.execute("select release_version from system.local")
 
-            file = open("Training_Logs/DataBaseConnectionLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_training'] + "/DataBaseConnectionLog.txt", 'a+')
             self.logger.log(file, f"Connection Established successfully, release_version  is {row[0]}")
             file.close()
 
