@@ -20,7 +20,7 @@ class DBOperation:
         #self.path = 'Training_Database/'
         self.badFilePath = self.schema['load_data']['validated_raw_data'] + "Bad_Raw"
         self.goodFilePath = self.schema['load_data']['validated_raw_data'] + "Good_Raw"
-        self.database_name = self.schema['data_base_info']['database_name']
+        #self.database_name = self.schema['data_base_info']['database_name']
         self.keyspace = self.schema['data_base_info']['keyspace_name']
         self.table_name = self.schema['data_base_info']['table_name']
         self.logger = AppLogger()
@@ -48,14 +48,14 @@ class DBOperation:
             file.close()
 
         except Exception as e:
-            file = open("Training_Logs/DataBaseConnectionLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_training'] + "/DataBaseConnectionLog.txt", 'a+')
             self.logger.log(file, f"Error while connecting to database: {e}")
             file.close()
             raise ConnectionError
 
         return session
 
-    def create_table_in_db(self, column_names):
+    def create_table_in_db(self):
         """
                 Method Name: createTableDb
                 Description: This method creates a table in the given database which will be used to insert the Good data after raw data validation.
@@ -64,7 +64,7 @@ class DBOperation:
         """
         try:
 
-            session = self.database_connection(self.database_name)
+            session = self.database_connection()
             row = session.execute(f"USE {self.keyspace};")
             row = session.execute(f"DROP TABLE IF EXISTS {self.table_name};")
             # creating and additional column to make it as PRIMARY KEY
@@ -79,17 +79,17 @@ class DBOperation:
             # else:
             # row = session.execute(f"ALTER TABLE {self.table_name} ADD ({key} {d_type});")
 
-            file = open("Training_Logs/DbTableCreateLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_training'] + "/DbTableCreateLog.txt", 'a+')
             self.logger.log(file, "Tables created successfully!!")
             file.close()
 
         except Exception as e:
-            file = open("Training_Logs/DbTableCreateLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_training'] + "/DbTableCreateLog.txt", 'a+')
             self.logger.log(file, f"Error while creating table:{e}")
             file.close()
             raise e
 
-    def insert_data_to_db_table(self, database, column_names):
+    def insert_data_to_db_table(self):
 
         """
                Method Name: insertIntoTableGoodData
@@ -97,15 +97,15 @@ class DBOperation:
                Output: None
                On Failure: Raise Exception
         """
-        session = self.database_connection(database)
+        session = self.database_connection()
 
         goodFilePath = self.goodFilePath
-        badFilePath = self.badFilePath
         onlyfiles = [f for f in listdir(goodFilePath)]
-        file = open("Training_Logs/DbInsertLog.txt", 'a+')
+
+        file = open(self.schema['logs']['log_dir_training'] + "/DbInsertLog.txt", 'a+')
 
         try:
-            for files in listdir(self.goodFilePath):
+            for files in onlyfiles:
                 data = pd.read_excel(self.goodFilePath + "/" + files, engine='openpyxl')
                 # creating a new column 'ID' to the dataframe
                 data['ID'] = pd.Series(range(0, len(data)))
@@ -124,7 +124,7 @@ class DBOperation:
             self.logger.log(file, f"Error while inserting data to DB {e}")
             file.close()
 
-    def selecting_data_from_table_into_csv(self, database):
+    def selecting_data_from_table_into_csv(self):
         """
               Method Name: selectingDatafromtableintocsv
               Description: This method exports the data in GoodData table as a CSV file. in a given location.
@@ -133,14 +133,14 @@ class DBOperation:
               On Failure: Raise Exception
         """
 
-        self.filefrom_db = 'Training_FileFromDB/'
+        self.filefrom_db = self.schema['load_data']['data_from_db']
         self.file_name = 'InputFile.csv'
 
-        file = open("Training_Logs/ExportToCsv.txt", 'a+')
+        file = open(self.schema['logs']['log_dir_training'] + "/ExportToCsv.txt", 'a+')
 
         try:
-            session = self.database_connection(database)
-            results = session.execute(f'SELECT * FROM flight_price_prediction_keyspace.{self.table_name}')
+            session = self.database_connection()
+            results = session.execute(f'SELECT * FROM {self.keyspace}.{self.table_name}')
 
             col_names = ['Airline', 'Date_of_Journey', 'Source', 'Destination', 'Route', 'Dep_Time',
                          'Arrival_Time', 'Duration', 'Total_Stops', 'Additional_Info', 'Price', 'ID']

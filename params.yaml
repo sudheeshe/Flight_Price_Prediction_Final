@@ -7,7 +7,7 @@ base:
 load_data:
   raw_dataset_csv: Data/Training_Data/Training_Batch_Files/
   archive_data: Data/Training_Data/Training_Archive_Bad_Data/
-  data_from_db: Data/Training_Data/Training_File_From_DB/InputFile.csv
+  data_from_db: Data/Training_Data/Training_File_From_DB/
   validated_raw_data: Data/Training_Data/Training_Raw_Files_Validated/
 
 data_base_info:
