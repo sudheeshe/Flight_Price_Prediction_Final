@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.cluster import KMeans
 from kneed import KneeLocator
-import pandas as pd
+from Src.Read_Yaml import read_params
 from Src.File_Methods import File_Operation
 from pickle import dump
 
@@ -14,6 +14,8 @@ class KMeansClustering:
     def __init__(self, file, logger):
         self.file = file
         self.logger = logger
+        self.schema = read_params('params.yaml')
+
 
 
 
@@ -37,7 +39,7 @@ class KMeansClustering:
             plt.xlabel('Number of clusters')
             plt.ylabel('WCSS')
             # plt.show()
-            plt.savefig('preprocessing_data/K-Means_Elbow.PNG')
+            plt.savefig(self.schema['logs']['KMeans_elbowplot'])
             # finding the value of the optimum cluster programmatically
             self.kn = KneeLocator(range(1, 11), wcss, curve='convex', direction='decreasing')
             self.logger.log(self.file, f'The optimum number of clusters is: {self.kn.knee}. Exited the elbow_plot method of the KMeansClustering class')
@@ -64,7 +66,7 @@ class KMeansClustering:
         try:
             self.kmeans = KMeans(n_clusters=number_of_clusters, init='k-means++', random_state=42)
             transformer = self.kmeans.fit(data)
-            dump(self.kmeans, open('Pickle_Files/Kmeans_cluster.pkl', 'wb'))
+            dump(self.kmeans, open(self.schema['transformation_pkl']['cluster'], 'wb'))
             self.y_kmeans = transformer.fit_predict(data)  # divide data into clusters
 
             self.file_oper = File_Operation(self.file, self.logger)

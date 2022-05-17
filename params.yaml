@@ -23,6 +23,7 @@ data_base_info:
 logs:
   log_dir_training: Logs/Training_Logs
   log_dir_prediction: Logs/Prediction_Logs
+  KMeans_elbowplot: Logs/Data_Info/Plots/K_Means_Elbow.PNG
 
 
 schema_files:
@@ -42,6 +43,7 @@ estimators:
       # l1_ratio: 0.89
       alpha: 0.9
       l1_ratio: 0.4
+
 
 
 model_dir:
