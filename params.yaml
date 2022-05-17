@@ -10,6 +10,7 @@ load_data:
   data_from_db: Data/Training_Data/Training_File_From_DB/
   validated_raw_data: Data/Training_Data/Training_Raw_Files_Validated/
 
+
 data_base_info:
   database_name: flight_price_prediction
   keyspace_name: flight_price_prediction_keyspace
@@ -17,7 +18,6 @@ data_base_info:
   secure_connect_bundle: Cassandra_Bundle/secure-connect-flight-price-prediction.zip
   client_id: caqhALHQBBIUIZWptJlnouhX
   auth_provider: 9M86beObXwhCR+_L,FSbYX4ZeF_nJ39.pjmDtn8Za-N3L9P+kJwrDxhP4MPZ_a4hRy3Z2FEnxRCI_5SNIJZPm6eJhAvDFG-7F-ZeqPGiqk-BCy+xOr1mZf043J4boBhS
-
 
 
 logs:
@@ -29,9 +29,11 @@ schema_files:
   training_schema_json: Schema/schema_training.json
   prediction_schema_json: Schema/schema_prediction.json
 
+
 transformation_pkl:
   one_hot_encoder: Transformation/onehot_encoder.pkl
   cluster: Transformation/Kmeans_cluster.pkl
+
 
 estimators:
   ElasticNet:
@@ -40,7 +42,12 @@ estimators:
       # l1_ratio: 0.89
       alpha: 0.9
       l1_ratio: 0.4
-model_dir: Models/Available_Prediction_Models
+
+
+model_dir:
+  prediction_models: Models/Available_Prediction_Models
+  clustering_models: Models/Available_Cluster_Models
+
 
 reports:
   params: Reports/params.json

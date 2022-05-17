@@ -1,6 +1,8 @@
 import pickle
 import os
 import shutil
+from Src.Read_Yaml import read_params
+
 
 class File_Operation:
     """
@@ -8,11 +10,11 @@ class File_Operation:
     """
 
     def __init__(self, file, logger):
+        self.schema = read_params('params.yaml')
         self.logger = logger
         self.file = file
-        self.model_directory = 'Available_Trained_Models/'
-        self.model_directory_cluster = 'Available_Cluster_Models'
-
+        self.model_directory = self.schema['model_dir']['prediction_models']
+        self.model_directory_cluster = self.schema['model_dir']['clustering_models']
 
     def save_model(self, model, filename):
         """
@@ -23,21 +25,23 @@ class File_Operation:
         """
         self.logger.log(self.file, 'Entered the save_model method of the File_Operation class')
         try:
-            path = os.path.join(self.model_directory, filename) #create seperate directory for each cluster
-            if os.path.isdir(path): #remove the previousely existing models for each cluster
+            path = os.path.join(self.model_directory, filename)  # create separate directory for each cluster
+            if os.path.isdir(path):  # remove the previously existing models for each cluster
                 shutil.rmtree(self.model_directory)
                 os.makedirs(path)
             else:
                 os.makedirs(path)
             pickle.dump(model, open(path + '/' + filename + '.sav', 'wb'))
-            self.logger.log(self.file, f'Model File {filename} saved. Exited the save_model method of the Model_Finder class')
+            self.logger.log(self.file,
+                            f'Model File {filename} saved. Exited the save_model method of the Model_Finder class')
             return 'Sucessfully model saved....!!'
 
         except Exception as e:
-            self.logger.log(self.file,f'Exception occured in save_model method of the Model_Finder class. Exception message: {e}')
-            self.logger.log(self.file,f'Model File {filename} could not be saved. Exited the save_model method of the Model_Finder class')
+            self.logger.log(self.file,
+                            f'Exception occured in save_model method of the Model_Finder class. Exception message: {e}')
+            self.logger.log(self.file,
+                            f'Model File {filename} could not be saved. Exited the save_model method of the Model_Finder class')
             raise Exception()
-
 
     def save_cluster_model(self, model, filename):
         """
@@ -48,21 +52,23 @@ class File_Operation:
         """
         self.logger.log(self.file, 'Entered the save_model method of the File_Operation class')
         try:
-            path = os.path.join(self.model_directory_cluster,filename) #create seperate directory for each cluster
-            if os.path.isdir(path): #remove the previousely existing models for each cluster
+            path = os.path.join(self.model_directory_cluster, filename)  # create separate directory for each cluster
+            if os.path.isdir(path):  # remove the previously existing models for each cluster
                 shutil.rmtree(self.model_directory_cluster)
                 os.makedirs(path)
             else:
                 os.makedirs(path)
             pickle.dump(model, open(path + '/' + filename + '.sav', 'wb'))
-            self.logger.log(self.file, f'Model File {filename} saved. Exited the save_model method of the Model_Finder class')
+            self.logger.log(self.file,
+                            f'Model File {filename} saved. Exited the save_model method of the Model_Finder class')
             return 'Sucessfully model saved....!!'
 
         except Exception as e:
-            self.logger.log(self.file,f'Exception occured in save_model method of the Model_Finder class. Exception message: {e}')
-            self.logger.log(self.file,f'Model File {filename} could not be saved. Exited the save_model method of the Model_Finder class')
+            self.logger.log(self.file,
+                            f'Exception occured in save_model method of the Model_Finder class. Exception message: {e}')
+            self.logger.log(self.file,
+                            f'Model File {filename} could not be saved. Exited the save_model method of the Model_Finder class')
             raise Exception()
-
 
     def load_model(self, filename):
 
@@ -75,12 +81,15 @@ class File_Operation:
         self.logger.log(self.file, 'Entered the load_model method of the File_Operation class')
         try:
             model = pickle.load(open(self.model_directory + filename + "/" + filename + '.sav', 'rb'))
-            self.logger.log(self.file,f'Model File {filename} loaded. Exited the load_model method of the Model_Finder class')
+            self.logger.log(self.file,
+                            f'Model File {filename} loaded. Exited the load_model method of the Model_Finder class')
             return model
 
         except Exception as e:
-            self.logger.log(self.file, f'Exception occured in load_model method of the Model_Finder class. Exception message: {e}')
-            self.logger.log(self.file, f'Model File {filename} could not be saved. Exited the load_model method of the Model_Finder class')
+            self.logger.log(self.file,
+                            f'Exception occured in load_model method of the Model_Finder class. Exception message: {e}')
+            self.logger.log(self.file,
+                            f'Model File {filename} could not be saved. Exited the load_model method of the Model_Finder class')
             raise Exception()
 
     def load_cluster_model(self, filename):
@@ -94,14 +103,16 @@ class File_Operation:
         self.logger.log(self.file, 'Entered the load_model method of the File_Operation class')
         try:
             model = pickle.load(open('Available_Cluster_Models/KMeans_Training/KMeans_Training.sav', 'rb'))
-            self.logger.log(self.file,f'Model File {filename} loaded. Exited the load_model method of the Model_Finder class')
+            self.logger.log(self.file,
+                            f'Model File {filename} loaded. Exited the load_model method of the Model_Finder class')
             return model
 
         except Exception as e:
-            self.logger.log(self.file, f'Exception occured in load_model method of the Model_Finder class. Exception message: {e}')
-            self.logger.log(self.file, f'Model File {filename} could not be saved. Exited the load_model method of the Model_Finder class')
+            self.logger.log(self.file,
+                            f'Exception occured in load_model method of the Model_Finder class. Exception message: {e}')
+            self.logger.log(self.file,
+                            f'Model File {filename} could not be saved. Exited the load_model method of the Model_Finder class')
             raise Exception()
-
 
     def find_correct_model(self, cluster_number):
         """
@@ -123,10 +134,12 @@ class File_Operation:
                 except:
                     continue
             self.model_name = self.model_name.split('.')[0]
-            self.logger.log(self.file,'Exited the find_correct_model_file method of the Model_Finder class.')
+            self.logger.log(self.file, 'Exited the find_correct_model_file method of the Model_Finder class.')
             return self.model_name
 
         except Exception as e:
-            self.logger.log(self.file,f'Exception occured in find_correct_model_file method of the Model_Finder class. Exception message:{e}')
-            self.logger.log(self.file,'Exited the find_correct_model_file method of the Model_Finder class with Failure')
+            self.logger.log(self.file,
+                            f'Exception occured in find_correct_model_file method of the Model_Finder class. Exception message:{e}')
+            self.logger.log(self.file,
+                            'Exited the find_correct_model_file method of the Model_Finder class with Failure')
             raise Exception()
