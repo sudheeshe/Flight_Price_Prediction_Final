@@ -51,7 +51,7 @@ def predict_route_client():
         pred_val_obj = PredictionValidation(path['test_data']['raw_test_dataset'])
         pred_val_obj.prediction_validation()
 
-        predict = Prediction(path['test_data']['test_data_from_db'])
+        predict = Prediction(path['test_data']['final_test_data'])
         predict.prediction_from_model()
 
         return Response("Prediction File created at Prediction_Output_File folder!!!")

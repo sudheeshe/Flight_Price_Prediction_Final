@@ -16,6 +16,7 @@ class Prediction:
         self.schema = read_params('params.yaml')
         self.path = path
         self.file = open(self.schema['logs']['log_dir_prediction'] + "/Prediction_Log.txt", 'a+')
+
         self.logger = AppLogger()
         if path is not None:
             self.prediction_data_val = PredictionDataValidation(path)

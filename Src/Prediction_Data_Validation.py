@@ -190,7 +190,7 @@ class PredictionDataValidation:
         self.delete_existing_Bad_data_training_folder()
         self.delete_existing_Good_data_training_folder()
 
-        onlyfiles = [f for f in listdir(self.Batch_directory)]
+        onlyfiles = [f for f in listdir(self.Batch_directory) if f.endswith('.xlsx')]
 
         try:
             self.create_directory_for_GoodBadRaw_data()

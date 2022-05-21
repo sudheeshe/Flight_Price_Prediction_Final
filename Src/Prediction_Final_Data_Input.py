@@ -30,7 +30,7 @@ class DataGenerator:
 
         goodFilePath = self.goodFilePath
         onlyfiles = [f for f in listdir(goodFilePath)]
-        file = open(self.schema['log']['log_dir_prediction'] + '/DbInsertLog.txt', 'a+')
+        file = open(self.schema['logs']['log_dir_prediction'] + '/DbInsertLog.txt', 'a+')
 
         try:
             col_names = ['Airline', 'Date_of_Journey', 'Source', 'Destination', 'Route', 'Dep_Time',

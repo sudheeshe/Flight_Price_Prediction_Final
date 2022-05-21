@@ -1,0 +1,12 @@
+2022-05-21/21:03:17		Column Length Validation Started!!
+2022-05-21/21:03:18		Error Occured:: openpyxl does not support .dvc file format, please check you can open it with Excel first. Supported formats are: .xlsx,.xlsm,.xltx,.xltm
+2022-05-21/21:07:44		Column Length Validation Started!!
+2022-05-21/21:08:17		Column Length Validation Completed!!
+2022-05-21/21:09:29		Column Length Validation Started!!
+2022-05-21/21:09:30		Column Length Validation Completed!!
+2022-05-21/21:10:20		Column Length Validation Started!!
+2022-05-21/21:10:21		Column Length Validation Completed!!
+2022-05-21/21:10:35		Column Length Validation Started!!
+2022-05-21/21:10:36		Column Length Validation Completed!!
+2022-05-21/21:11:56		Column Length Validation Started!!
+2022-05-21/21:11:56		Column Length Validation Completed!!

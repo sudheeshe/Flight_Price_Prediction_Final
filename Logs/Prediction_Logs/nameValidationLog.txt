@@ -1,0 +1,22 @@
+2022-05-21/21:03:17		Invalid File Name!! File moved to Bad Raw Folder :: .gitignore
+2022-05-21/21:03:17		Valid File name!! File moved to GoodRaw Folder :: data_2018.xlsx
+2022-05-21/21:03:17		Valid File name!! File moved to GoodRaw Folder :: data_2018.xlsx.dvc
+2022-05-21/21:03:17		Invalid File Name!! File moved to Bad Raw Folder :: Data_2019 (2).xlsx
+2022-05-21/21:03:17		Invalid File Name!! File moved to Bad Raw Folder :: Data_2019 (2).xlsx.dvc
+2022-05-21/21:03:17		Invalid File Name!! File moved to Bad Raw Folder :: DATA_2019 (3).xlsx
+2022-05-21/21:03:17		Invalid File Name!! File moved to Bad Raw Folder :: DATA_2019 (3).xlsx.dvc
+2022-05-21/21:07:32		Valid File name!! File moved to GoodRaw Folder :: data_2018.xlsx
+2022-05-21/21:07:36		Invalid File Name!! File moved to Bad Raw Folder :: Data_2019 (2).xlsx
+2022-05-21/21:07:39		Invalid File Name!! File moved to Bad Raw Folder :: DATA_2019 (3).xlsx
+2022-05-21/21:09:29		Valid File name!! File moved to GoodRaw Folder :: data_2018.xlsx
+2022-05-21/21:09:29		Invalid File Name!! File moved to Bad Raw Folder :: Data_2019 (2).xlsx
+2022-05-21/21:09:29		Invalid File Name!! File moved to Bad Raw Folder :: DATA_2019 (3).xlsx
+2022-05-21/21:10:20		Valid File name!! File moved to GoodRaw Folder :: data_2018.xlsx
+2022-05-21/21:10:20		Invalid File Name!! File moved to Bad Raw Folder :: Data_2019 (2).xlsx
+2022-05-21/21:10:20		Invalid File Name!! File moved to Bad Raw Folder :: DATA_2019 (3).xlsx
+2022-05-21/21:10:35		Valid File name!! File moved to GoodRaw Folder :: data_2018.xlsx
+2022-05-21/21:10:35		Invalid File Name!! File moved to Bad Raw Folder :: Data_2019 (2).xlsx
+2022-05-21/21:10:35		Invalid File Name!! File moved to Bad Raw Folder :: DATA_2019 (3).xlsx
+2022-05-21/21:11:56		Valid File name!! File moved to GoodRaw Folder :: data_2018.xlsx
+2022-05-21/21:11:56		Invalid File Name!! File moved to Bad Raw Folder :: Data_2019 (2).xlsx
+2022-05-21/21:11:56		Invalid File Name!! File moved to Bad Raw Folder :: DATA_2019 (3).xlsx
