@@ -2,6 +2,7 @@ import pandas as pd
 from Src.File_Methods import File_Operation
 from Src.Preprocessing import Preprocessor
 from Src.Clustering import KMeansClustering
+from Src.Read_Yaml import read_params
 from Src.Logging import AppLogger
 from Src.Prediction_Data_Validation import PredictionDataValidation
 import os
@@ -12,8 +13,9 @@ from pickle import load
 class Prediction:
 
     def __init__(self, path):
+        self.schema = read_params('params.yaml')
         self.path = path
-        self.file = open("Prediction_Logs/Prediction_Log.txt", 'a+')
+        self.file = open(self.schema['logs']['log_dir_prediction'] + "/Prediction_Log.txt", 'a+')
         self.logger = AppLogger()
         if path is not None:
             self.prediction_data_val = PredictionDataValidation(path)
@@ -24,8 +26,7 @@ class Prediction:
         try:
             self.prediction_data_val.delete_prediction_file() #deletes the existing prediction file from last run!
             self.logger.log(self.file, "Starting prediction...!!")
-            data_getter = DataGetter_Prediction(self.file, self.logger)
-            data = data_getter.get_data()
+            data = self.schema['test_data']['final_test_data']
 
 
             prepocessor = Preprocessor(self.file, self.logger)

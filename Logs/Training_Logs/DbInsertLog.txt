@@ -1,2 +1,0 @@
-2022-03-25/23:31:12		Error occurred Error from server: code=2200 [Invalid query] message="Invalid FLOAT constant (NaN) for "route" of type text"
-2022-03-25/23:32:13		CSV Loaded successfully

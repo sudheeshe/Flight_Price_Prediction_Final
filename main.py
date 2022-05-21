@@ -1,14 +1,14 @@
 from wsgiref import simple_server
-from flask import Flask, request, render_template
+from flask import Flask
 from flask import Response
 import os
+from Src.Read_Yaml import read_params
 from flask_cors import CORS, cross_origin
 from Src.Prediction_Validation_Insertion import PredictionValidation
 from Src.Training_Model import TrainModel
 from Src.Training_Validation_Insertion import TrainValidation
 import flask_monitoringdashboard as dashboard
 from Src.Predict_From_Model import Prediction
-import json
 
 
 os.putenv('LANG', 'en_US.UTF-8')
@@ -21,7 +21,7 @@ CORS(app)
 @app.route("/", methods = ['GET'])
 @cross_origin()
 def home():
-    return "Welcome to home page"
+    return "Welcome to Flight Price Prediction home page"
 
 
 @app.route("/train", methods = ['GET'])
@@ -29,7 +29,8 @@ def home():
 def train_route_client():
 
     try:
-        train_val_obj = TrainValidation('Training_Batch_Files/')
+        path = read_params('params.yaml')
+        train_val_obj = TrainValidation(path['load_data']['raw_dataset_csv'])
         train_val_obj.train_validation()
 
         train_model_obj = TrainModel()
@@ -45,11 +46,12 @@ def train_route_client():
 def predict_route_client():
 
     try:
+        path = read_params('params.yaml')
         print('Inside Predict method')
-        pred_val_obj = PredictionValidation('Prediction_Batch_Files/')
+        pred_val_obj = PredictionValidation(path['test_data']['raw_test_dataset'])
         pred_val_obj.prediction_validation()
 
-        predict = Prediction('Prediction_FileFromDB/')
+        predict = Prediction(path['test_data']['test_data_from_db'])
         predict.prediction_from_model()
 
         return Response("Prediction File created at Prediction_Output_File folder!!!")

@@ -5,7 +5,8 @@ import re
 import json
 import shutil
 import pandas as pd
-from application_logger.logging import AppLogger
+from Src.Logging import AppLogger
+from Src.Read_Yaml import read_params
 
 
 class PredictionDataValidation:
@@ -14,8 +15,9 @@ class PredictionDataValidation:
     """
 
     def __init__(self, path):
+        self.schema = read_params('params.yaml')
         self.Batch_directory = path
-        self.schema_path = 'schema_prediction.json'
+        self.schema_path = self.schema['schema_files']['prediction_schema_json']
         self.logger = AppLogger()
 
     def values_from_schema(self):
@@ -35,13 +37,13 @@ class PredictionDataValidation:
             column_names = dic['ColName']
             NumberOfColumns = dic['NumberOfColumns']
 
-            file = open("Prediction_Logs/valuesfromSchemaValidationLog.txt", 'a+')
-            message = f"LengthOfYearStampInFile : {LengthOfYearStampInFile}" + "\t" + "NumberOfColumns: {NumberOfColumns}" + "\n"
+            file = open(self.schema['logs']['log_dir_prediction'] + "/valuesfromSchemaValidationLog.txt", 'a+')
+            message = f"LengthOfYearStampInFile : {LengthOfYearStampInFile}" + "\t\t" + f"NumberOfColumns: {NumberOfColumns}" + "\n"
             self.logger.log(file, message)
             file.close()
 
         except Exception as e:
-            file = open("Prediction_Logs/valuesfromSchemaValidationLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_prediction'] + "/valuesfromSchemaValidationLog.txt", 'a+')
             self.logger.log(file, str(e))
             file.close()
             raise e
@@ -72,16 +74,16 @@ class PredictionDataValidation:
         """
 
         try:
-            path = os.path.join("Prediction_Raw_Files_Validated/", "Good_Raw/")
+            path = os.path.join(self.schema['test_data']['validated_raw_test_data'], "Good_Raw/")
             if not os.path.isdir(path):
                 os.makedirs(path)
 
-            path = os.path.join("Prediction_Raw_Files_Validated/", "Bad_Raw/")
+            path = os.path.join(self.schema['test_data']['validated_raw_test_data'], "Bad_Raw/")
             if not os.path.isdir(path):
                 os.makedirs(path)
 
         except Exception as e:
-            file = open("Prediction_Logs/GeneralLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_prediction'] + "/GeneralLog.txt", 'a+')
             self.logger.log(file, f"Error while creating Directory: {e}")
             file.close()
             raise e
@@ -97,15 +99,15 @@ class PredictionDataValidation:
 
         """
         try:
-            path = 'Prediction_Raw_Files_Validated/'
+            path = self.schema['test_data']['validated_raw_test_data']
             if os.path.isdir(path + 'Good_Raw/'):
                 shutil.rmtree(path + 'Good_Raw/')
-                file = open("Prediction_Logs/GeneralLog.txt", 'a+')
+                file = open(self.schema['logs']['log_dir_prediction'] + "/GeneralLog.txt", 'a+')
                 self.logger.log(file, "GoodRaw directory deleted successfully!!!")
                 file.close()
 
         except Exception as e:
-            file = open("Prediction_Logs/GeneralLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_prediction'] + "/GeneralLog.txt", 'a+')
             self.logger.log(file, f"Error while Deleting Directory : {e}")
             file.close()
             raise e
@@ -120,14 +122,14 @@ class PredictionDataValidation:
         """
 
         try:
-            path = 'Prediction_Raw_Files_Validated/'
+            path = self.schema['test_data']['validated_raw_test_data']
             if os.path.isdir(path + 'Bad_Raw/'):
                 shutil.rmtree(path + 'Bad_Raw/')
-                file = open("Prediction_Logs/GeneralLog.txt", 'a+')
+                file = open(self.schema['logs']['log_dir_prediction'] + "/GeneralLog.txt", 'a+')
                 self.logger.log(file, "BadRaw directory deleted before starting validation!!!")
                 file.close()
         except Exception as e:
-            file = open("Prediction_Logs/GeneralLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_prediction'] + "/GeneralLog.txt", 'a+')
             self.logger.log(file, f"Error while Deleting Directory : {e}")
             file.close()
             raise e
@@ -147,28 +149,28 @@ class PredictionDataValidation:
         time = now.strftime("%H%M%S")
         try:
 
-            source = 'Prediction_Raw_Files_Validated/Bad_Raw/'
+            source = self.schema['test_data']['validated_raw_test_data'] + 'Bad_Raw/'
             if os.path.isdir(source):
-                path = "PredictionArchivedBadData/"
+                path = self.schema['test_data']['archive_test_data']
                 if not os.path.isdir(path):
                     os.makedirs(path)
-                dest = 'PredictionArchivedBadData/BadData_' + str(date) + "_" + str(time)
+                dest = self.schema['test_data']['archive_test_data'] + 'BadData_' + str(date) + "_" + str(time)
                 if not os.path.isdir(dest):
                     os.makedirs(dest)
                 files = os.listdir(source)
                 for f in files:
                     if f not in os.listdir(dest):
                         shutil.move(source + f, dest)
-                file = open("Prediction_Logs/GeneralLog.txt", 'a+')
+                file = open(self.schema['logs']['log_dir_prediction'] + "/GeneralLog.txt", 'a+')
                 self.logger.log(file, "Bad files moved to archive")
-                path = 'Prediction_Raw_Files_Validated/'
+                path = self.schema['test_data']['validated_raw_test_data']
                 if os.path.isdir(path + 'Bad_Raw/'):
                     shutil.rmtree(path + 'Bad_Raw/')
                 self.logger.log(file, "Bad Raw Data Folder Deleted successfully!!")
                 file.close()
 
         except Exception as e:
-            file = open("Prediction_Logs/GeneralLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_prediction'] + "/GeneralLog.txt", 'a+')
             self.logger.log(file, f"Error while moving bad files to archive: {e}")
             file.close()
             raise e
@@ -192,7 +194,7 @@ class PredictionDataValidation:
 
         try:
             self.create_directory_for_GoodBadRaw_data()
-            f = open("Prediction_Logs/nameValidationLog.txt", 'a+')
+            f = open(self.schema['logs']['log_dir_prediction'] + "/nameValidationLog.txt", 'a+')
 
             for filename in onlyfiles:
                 if (re.match(regex, filename)):
@@ -201,26 +203,26 @@ class PredictionDataValidation:
 
                     if (splitAt_[0]) == 'data':
                         if len(splitAt_[1]) == LengthOfYearStampInFile:
-                            shutil.copy(f"Prediction_Batch_files/{filename}", "Prediction_Raw_Files_Validated/Good_Raw")
+                            shutil.copy(self.schema['test_data']['raw_test_dataset'] + filename , self.schema['test_data']['validated_raw_test_data']+ "Good_Raw")
                             self.logger.log(f, "Valid File name!! File moved to GoodRaw Folder :: %s" % filename)
 
                         else:
-                            shutil.copy("Prediction_Batch_files/" + filename, "Prediction_Raw_Files_Validated/Bad_Raw")
+                            shutil.copy(self.schema['test_data']['raw_test_dataset'] + filename, self.schema['test_data']['validated_raw_test_data'] + "Bad_Raw")
                             self.logger.log(f, "Invalid File Name!! File moved to Bad Raw Folder :: %s" % filename)
 
                     else:
-                        shutil.copy("Prediction_Batch_files/" + filename, "Prediction_Raw_Files_Validated/Bad_Raw")
+                        shutil.copy(self.schema['test_data']['raw_test_dataset'] + filename, self.schema['test_data']['validated_raw_test_data'] + "Bad_Raw")
                         self.logger.log(f, "Invalid File Name!! File moved to Bad Raw Folder :: %s" % filename)
                 else:
-                    shutil.copy("Prediction_Batch_files/" + filename, "Prediction_Raw_Files_Validated/Bad_Raw")
+                    shutil.copy(self.schema['test_data']['raw_test_dataset'] + filename, self.schema['test_data']['validated_raw_test_data'] + "Bad_Raw")
                     self.logger.log(f, "Invalid File Name!! File moved to Bad Raw Folder :: %s" % filename)
 
             f.close()
 
 
         except Exception as e:
-            f = open("Prediction_Logs/nameValidationLog.txt", 'a+')
-            self.logger.log(f, f"Error occured while validating FileName {e}")
+            f = open(self.schema['logs']['log_dir_prediction'] + "/nameValidationLog.txt", 'a+')
+            self.logger.log(f, f"Error occurred while validating FileName {e}")
             f.close()
             raise e
 
@@ -236,22 +238,22 @@ class PredictionDataValidation:
         """
 
         try:
-            f = open("Prediction_Logs/columnValidationLog.txt", 'a+')
+            f = open(self.schema['logs']['log_dir_prediction'] + "/columnValidationLog.txt", 'a+')
             self.logger.log(f, "Column Length Validation Started!!")
 
-            for file in listdir('Prediction_Raw_Files_Validated/Good_Raw/'):
-                data = pd.read_excel("Prediction_Raw_Files_Validated/Good_Raw/" + file, engine='openpyxl')
+            for file in listdir(self.schema['test_data']['validated_raw_test_data'] + 'Good_Raw/'):
+                data = pd.read_excel(self.schema['test_data']['validated_raw_test_data'] + "Good_Raw/" + file, engine='openpyxl')
                 if data.shape[1] == number_of_columns:
                     pass
                 else:
-                    shutil.move("Prediction_Raw_Files_Validated/Good_Raw/" + file,
-                                "Prediction_Raw_Files_Validated/Bad_Raw")
+                    shutil.move(self.schema['test_data']['validated_raw_test_data'] + "Good_Raw/" + file,
+                                self.schema['test_data']['validated_raw_test_data'] + "Bad_Raw")
                     self.logger.log(f, "Invalid Column Length for the file!! File moved to Bad Raw Folder :: %s" % file)
 
             self.logger.log(f, "Column Length Validation Completed!!")
 
         except Exception as e:
-            f = open("Prediction_Logs/columnValidationLog.txt", 'a+')
+            f = open(self.schema['logs']['log_dir_prediction'] + "/columnValidationLog.txt", 'a+')
             self.logger.log(f, "Error Occured:: %s" % e)
             f.close()
             raise e
@@ -270,24 +272,25 @@ class PredictionDataValidation:
         """
 
         try:
-            file = open("Prediction_Logs/missingValuesInWholeColumnLog.txt", 'a+')
+            file = open(self.schema['logs']['log_dir_prediction'] + "/missingValuesInWholeColumnLog.txt", 'a+')
             self.logger.log(file, "Missing Values Validation Started!!")
 
-            path = 'Prediction_Raw_Files_Validated/Good_Raw/'
+            path = self.schema['test_data']['validated_raw_test_data'] + 'Good_Raw/'
             for f in os.listdir(path):
                 data = pd.read_excel(path + f, engine='openpyxl')
                 for col in data.columns:
                     if data[col].isnull().all():
-                        shutil.move(path + f, 'Prediction_Raw_Files_Validated/Bad_Raw')
+                        shutil.move(path + f, self.schema['test_data']['validated_raw_test_data'] + 'Bad_Raw')
                         self.logger.log(file,
                                         "File is invalid, an entire column have null values, File moved to Bad_Raw")
 
         except Exception as e:
-            file = open('Prediction_Logs/missingValuesInWholeColumnLog.txt', "a+")
+            file = open(self.schema['logs']['log_dir_prediction'] + '/missingValuesInWholeColumnLog.txt', "a+")
             self.logger.log(file, f"Error while validating missing values in entire column {e}")
             file.close()
 
     def delete_prediction_file(self):
 
-        if os.path.exists('Prediction_Output_File/Predictions.csv'):
-            os.remove('Prediction_Output_File/Predictions.csv')
+        if os.path.exists(self.schema['test_data']['prediction_output'] + 'Predictions.csv'):
+            os.remove(self.schema['test_data']['prediction_output'] + 'Predictions.csv')
+

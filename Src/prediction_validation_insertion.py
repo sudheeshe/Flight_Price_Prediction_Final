@@ -1,7 +1,7 @@
 from datetime import datetime
 from Src.Prediction_Data_Validation import PredictionDataValidation
-from Src.Datatype_Validation_Prediction import DBOperation
 from Src.Logging import AppLogger
+from Src.Read_Yaml import read_params
 
 
 class PredictionValidation:
@@ -10,11 +10,10 @@ class PredictionValidation:
     """
 
     def __init__(self, path):
+        self.schema = read_params('params.yaml')
         self.raw_data = PredictionDataValidation(path)
-        self.db_operation = DBOperation()
-        self.file = open("Prediction_Logs/Prediction_Main_Log.txt", 'a+')
+        self.file = open(self.schema['logs']['log_dir_prediction'] + "Prediction_Main_Log.txt", 'a+')
         self.logger = AppLogger()
-        self.database_name = 'flight_price_prediction'
 
     def prediction_validation(self):
 
@@ -34,24 +33,6 @@ class PredictionValidation:
 
             self.logger.log(self.file, "Creating Prediction_Database and tables on the basis of given schema!!!")
             # create database with given name, if present open the connection! Create table with columns given in schema file
-            self.db_operation.create_table_in_db(self.database_name)
-            self.logger.log(self.file, f"Table created successfully on Cassandra DB ")
-            self.logger.log(self.file, "Starting Insertion of Data into Table !!!!")
-            # insert csv files in the table
-            self.db_operation.insert_data_to_db_table(self.database_name, column_names)
-            self.logger.log(self.file, "Data has been inserted successfully on Casandra!!!")
-            self.logger.log(self.file, "Deleting Good Data Folder")
-            # Delete the good data folder after loading files in table
-            self.raw_data.delete_existing_Good_data_training_folder()
-            self.logger.log(self.file, "Good_Data folder deleted!!!")
-            self.logger.log(self.file, "Moving bad files to Archive and deleting Bad_Data folder!!!")
-            # Move the bad files to archive folder
-            self.raw_data.move_BadFiles_to_Archive()
-            self.logger.log(self.file, "Bad files moved to archive!! Bad folder Deleted!!")
-            self.logger.log(self.file, "Validation Operation completed!!")
-            self.logger.log(self.file, "Extracting csv file from table")
-            # export data in table to csvfile
-            self.db_operation.selecting_data_from_table_into_csv(self.database_name)
             self.file.close()
 
 

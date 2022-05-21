@@ -1,11 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c393321-91e8-4232-ada6-8edd952ed3c1" name="Changes" comment="gitignore added">
-      <change beforePath="$PROJECT_DIR$/.dvc/config" beforeDir="false" afterPath="$PROJECT_DIR$/.dvc/config" afterDir="false" />
+    <list default="true" id="7c393321-91e8-4232-ada6-8edd952ed3c1" name="Changes" comment="Training_Model.py is fully updated">
+      <change afterPath="$PROJECT_DIR$/Src/Prediction_input.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Models/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-23_140603/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-23_140603/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-23_140603/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-23_161014/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-23_161014/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-23_161014/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-23_200810/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-23_200810/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-23_200810/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-23_214327/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-23_214327/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-23_214327/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_000702/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_000702/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_000702/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_002642/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_002642/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_002642/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_002642/data_2019 -.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_002841/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_002841/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_002841/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_114551/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_114551/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_114551/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_122509/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_122509/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-24_122509/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-25_014457/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-25_014457/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-25_234344/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Archived_Bad_Data/BadData_2022-03-25_234344/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_File_From_DB/InputFile.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Raw_Files_Validated/Bad_Raw/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Raw_Files_Validated/Bad_Raw/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Raw_Files_Validated/Good_Raw/data_2018.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-23_211311/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-23_211311/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-23_211311/data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-23_211311/data2019.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-23_211311/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-23_211311/data_2019 -.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-23_235832/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-23_235832/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-23_235832/data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-23_235832/data2019.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-23_235832/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-23_235832/data_2019 -.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-25_012351/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-25_012351/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-25_012351/data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-25_012351/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-25_233213/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-25_233213/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-25_233213/data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Archive_Bad_Data/BadData_2022-03-25_233213/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_File_From_DB/InputFile.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Raw_Files_Validated/Bad_Raw/DATA_2019 (3).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Raw_Files_Validated/Bad_Raw/Data_2019 (2).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Raw_Files_Validated/Bad_Raw/data.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Raw_Files_Validated/Bad_Raw/data_201.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_Raw_Files_Validated/Good_Raw/data_2019.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Data_Info/Plots/K_Means_Elbow.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Data_Info/null_values.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/DataBaseConnectionLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/DbInsertLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/DbTableCreateLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/ExportToCsv.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/GeneralLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/Prediction_Log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/Prediction_Main_Log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/columnValidationLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/missingValuesInWholeColumnLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/nameValidationLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/valuesfromSchemaValidationLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Training_Logs/DataBaseConnectionLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Training_Logs/DbInsertLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Training_Logs/DbTableCreateLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Training_Logs/ExportToCsv.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Training_Logs/GeneralLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Training_Logs/ModelTrainingLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Training_Logs/Training_Main_Log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Training_Logs/columnValidationLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Training_Logs/missingValuesInWholeColumnLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Training_Logs/nameValidationLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Training_Logs/valuesfromSchemaValidationLog.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Available_Cluster_Models/KMeans_Training/KMeans_Training.sav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Available_Prediction_Models/RandomForest Regressor0/RandomForest Regressor0.sav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Available_Prediction_Models/RandomForest Regressor1/RandomForest Regressor1.sav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Available_Prediction_Models/RandomForest Regressor2/RandomForest Regressor2.sav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/Data_Transformation_Prediction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/Data_Transformation_Training.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/Datatype_Validation_Prediction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/Predict_From_Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Predict_From_Model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/Prediction_Data_Validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Prediction_Data_Validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/prediction_validation_insertion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Src/prediction_validation_insertion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/training_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Src/training_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Src/training_validation_insertion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Src/training_validation_insertion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Transformation/Kmeans_cluster.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Transformation/Kmeans_cluster.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/final_train_x.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flask_monitoringdashboard.db" beforeDir="false" afterPath="$PROJECT_DIR$/flask_monitoringdashboard.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/params.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/params.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,14 +136,93 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Models" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Data/Training_Data/Training_File_From_DB" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Experimental Space\Flight Price Prediction_MLOps\Data\Training_Data\Training_File_From_DB" />
+      <recent name="D:\Experimental Space\Flight Price Prediction_MLOps\Data\Training_Data\Training_Raw_Files_Validated\Good_Raw" />
+      <recent name="D:\Experimental Space\Flight Price Prediction_MLOps\Data\Training_Data\Training_Raw_Files_Validated\Bad_Raw" />
       <recent name="D:\Experimental Space\Flight Price Prediction_MLOps\Models" />
       <recent name="D:\Experimental Space\Flight Price Prediction_MLOps\Data" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Experimental Space\Flight Price Prediction_MLOps" />
+      <recent name="D:\Experimental Space\Flight Price Prediction_MLOps\Logs\Data_Info" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.test">
+    <configuration name="Read_Yaml" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Flight Price Prediction_MLOps" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Src/Read_Yaml.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Flight Price Prediction_MLOps" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Flight Price Prediction_MLOps" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.Read_Yaml" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -94,7 +275,98 @@
       <option name="project" value="LOCAL" />
       <updated>1652685674343</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="paths are updated as per folder structure">
+      <created>1652688378733</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652688378733</updated>
+    </task>
+    <task id="LOCAL-00008" summary="paths are updated as per folder structure">
+      <created>1652688445088</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652688445088</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Raw_Validation.py updated and tested successfully">
+      <created>1652728099843</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1652728099844</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Data_Type_vValidation.py database_connection method is updated">
+      <created>1652770171162</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1652770171162</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Data_Type_vValidation.py database_connection method is updated">
+      <created>1652770192975</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1652770192975</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Data_Type_vValidation.py  is fully updated">
+      <created>1652773743926</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1652773743926</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Training_Validation_Insertion.py  is fully updated">
+      <created>1652776794209</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1652776794209</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Training_Validation_Insertion.py  is fully updated">
+      <created>1652777108290</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1652777108290</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Preprocessing.py is fully updated">
+      <created>1652799649668</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1652799649668</updated>
+    </task>
+    <task id="LOCAL-00016" summary="File_Methods.py.py is fully updated">
+      <created>1652800242506</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1652800242506</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Clustering.py is fully updated">
+      <created>1652801183287</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1652801183287</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Tuner.py is fully updated">
+      <created>1652803680502</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1652803680502</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Training_Model.py is fully updated">
+      <created>1652810318076</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1652810318076</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,6 +387,32 @@
     <MESSAGE value="updated" />
     <MESSAGE value="Code_structure_updated" />
     <MESSAGE value="gitignore added" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore added" />
+    <MESSAGE value="paths are updated as per folder structure" />
+    <MESSAGE value="Raw_Validation.py updated and tested successfully" />
+    <MESSAGE value="Data_Type_vValidation.py database_connection method is updated" />
+    <MESSAGE value="Data_Type_vValidation.py  is fully updated" />
+    <MESSAGE value="Training_Validation_Insertion.py  is fully updated" />
+    <MESSAGE value="Preprocessing.py is fully updated" />
+    <MESSAGE value="File_Methods.py.py is fully updated" />
+    <MESSAGE value="Clustering.py is fully updated" />
+    <MESSAGE value="Tuner.py is fully updated" />
+    <MESSAGE value="Training_Model.py is fully updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Training_Model.py is fully updated" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Src/Tuner.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test.py</url>
+          <line>6</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

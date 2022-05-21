@@ -1,7 +1,6 @@
 from datetime import datetime
 from Src.Read_Yaml import read_params
 from Src.Raw_Validation import RawDataValidation
-from Src.Data_Transformation_Training import DataTransform
 from Src.Data_Type_Validation import DBOperation
 from Src.Logging import AppLogger
 
@@ -14,7 +13,6 @@ class TrainValidation:
     def __init__(self, path):
         self.schema = read_params('params.yaml')
         self.raw_data = RawDataValidation(path)
-        self.data_transform = DataTransform()
         self.db_operation = DBOperation()
         self.file = open(self.schema['logs']['log_dir_training'] + "/Training_Main_Log.txt", 'a+')
         self.logger = AppLogger()

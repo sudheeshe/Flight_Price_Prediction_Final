@@ -93,7 +93,7 @@ class TrainModel:
 
             #########
             csv = pd.DataFrame(train_x)
-            csv.to_csv('final_train_x.csv', index=False)
+            csv.to_csv(self.schema['load_data']['final_data'], index=False)
 
 
             # if missing values are there, replace them appropriately.

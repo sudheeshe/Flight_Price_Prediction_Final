@@ -81,3 +81,10 @@ reports:
   params: Reports/params.json
   scores: Reports/scores.json
 
+
+test_data:
+  raw_test_dataset: Data/Prediction_Data/Prediction_Batch_Files/
+  archive_test_data: Data/Prediction_Data/Prediction_Archived_Bad_Data/
+  validated_raw_test_data: Data/Prediction_Data/Prediction_Raw_Files_Validated/
+  final_test_data: Data/Prediction_Data/Final_Test_Data/final_test.csv
+  prediction_output: Data/Prediction_Data/Prediction_Output_File/
