@@ -80,7 +80,7 @@ class File_Operation:
         """
         self.logger.log(self.file, 'Entered the load_model method of the File_Operation class')
         try:
-            model = pickle.load(open(self.model_directory + filename + "/" + filename + '.sav', 'rb'))
+            model = pickle.load(open(self.model_directory +'/' + filename + "/" + filename + '.sav', 'rb'))
             self.logger.log(self.file,
                             f'Model File {filename} loaded. Exited the load_model method of the Model_Finder class')
             return model
@@ -102,7 +102,7 @@ class File_Operation:
         """
         self.logger.log(self.file, 'Entered the load_model method of the File_Operation class')
         try:
-            model = pickle.load(open('Available_Cluster_Models/KMeans_Training/KMeans_Training.sav', 'rb'))
+            model = pickle.load(open(self.schema['model_dir']['clustering_models'] + '/KMeans_Training/KMeans_Training.sav', 'rb'))
             self.logger.log(self.file,
                             f'Model File {filename} loaded. Exited the load_model method of the Model_Finder class')
             return model

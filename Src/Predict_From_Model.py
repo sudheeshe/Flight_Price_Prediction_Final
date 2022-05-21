@@ -1,10 +1,10 @@
 import pandas as pd
+from Src.Prediction_Data_Validation import PredictionDataValidation
+from Src.Prediction_Data_Preprocessing import PredDataPreprocessor
 from Src.File_Methods import File_Operation
-from Src.Preprocessing import Preprocessor
 from Src.Clustering import KMeansClustering
 from Src.Read_Yaml import read_params
 from Src.Logging import AppLogger
-from Src.Prediction_Data_Validation import PredictionDataValidation
 import os
 from pickle import load
 
@@ -27,10 +27,10 @@ class Prediction:
         try:
             self.prediction_data_val.delete_prediction_file() #deletes the existing prediction file from last run!
             self.logger.log(self.file, "Starting prediction...!!")
-            data = self.schema['test_data']['final_test_data']
+            data = pd.read_csv(self.schema['test_data']['final_test_data'])
 
 
-            prepocessor = Preprocessor(self.file, self.logger)
+            prepocessor = PredDataPreprocessor(self.file, self.logger)
             is_null_present = prepocessor.is_null_present(data)
 
 
@@ -42,10 +42,11 @@ class Prediction:
 
             ################################# PREPROCESSING AND FEATURE ENGINEERING ####################################
 
-            preprocessor = Preprocessor(self.file, self.logger)
+            preprocessor = PredDataPreprocessor(self.file, self.logger)
 
             # check if missing values are present in the dataset
             is_null_values_present, cols_with_missing_values = preprocessor.is_null_present(data)
+
 
             # Get the columns with constant values
             columns_to_drop_with_constant_values = preprocessor.get_columns_with_zero_std_deviation(data)
@@ -56,8 +57,6 @@ class Prediction:
             # Dropping the rows which have NaN
             data = preprocessor.drops_rows_with_nan(data)
 
-            # removing a row with Duration as '5min'
-            data = preprocessor.remove_row(data, '5m')
 
             # removing rows with have minimum occurrence
             data = preprocessor.rows_to_delete_in_prediction_file(data)
@@ -86,7 +85,7 @@ class Prediction:
 
 
             # Encoding categorical variables using Onehot Encoding Technique
-            scaler = load(open('Pickle_Files/onehot_encoder.pkl', 'rb'))
+            scaler = load(open(self.schema['transformation_pkl']['one_hot_encoder'], 'rb'))
             test_x = scaler.transform(data)
 
             ###################################### APPLYING CLUSTERING ###########################################
@@ -102,7 +101,7 @@ class Prediction:
             list_of_cluster = preprocessed_testing_data['cluster'].unique()
 
             ####### parsing all the clusters and looking for the best ML algorithm to fit on individual cluster ########
-
+            pred_dataframe = pd.DataFrame()
             for cluster in list_of_cluster:
                 cluster_data = preprocessed_testing_data[preprocessed_testing_data['cluster'] == cluster]
                 # cluster_data = cluster_data.reset_index(drop= True)
@@ -117,12 +116,12 @@ class Prediction:
                 model = file_ops.load_model(model_name)
 
                 result = list(model.predict(cluster_data))
-                result = pd.DataFrame(result)
+                pred_dataframe = pred_dataframe.append(result)
 
-                path = "Prediction_Output_File/Predictions.csv"
-                result.to_csv("Prediction_Output_File/Predictions.csv",
-                              header=False)  # appends result to prediction file
+
                 self.logger.log(self.file, 'End of Prediction')
+
+            return pred_dataframe.to_csv(self.schema['test_data']['prediction_output'], index=False)
 
 
 

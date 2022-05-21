@@ -34,7 +34,7 @@ class DataGenerator:
 
         try:
             col_names = ['Airline', 'Date_of_Journey', 'Source', 'Destination', 'Route', 'Dep_Time',
-                         'Arrival_Time', 'Duration', 'Total_Stops', 'Additional_Info', 'Price', 'ID']
+                         'Arrival_Time', 'Duration', 'Total_Stops', 'Additional_Info', 'ID']
             df_total = pd.DataFrame(columns=col_names)
             for files in onlyfiles:
                 data = pd.read_excel(self.goodFilePath + "/" + files, engine='openpyxl')
