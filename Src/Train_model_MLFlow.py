@@ -18,7 +18,7 @@ import numpy as np
 import json
 
 
-class TrainModel:
+class TrainModel_MLFlow:
     """
     This class performs the training of the model
     """

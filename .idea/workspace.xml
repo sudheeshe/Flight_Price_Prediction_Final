@@ -2,41 +2,87 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c393321-91e8-4232-ada6-8edd952ed3c1" name="Changes" comment="Training_Model.py is fully updated">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/Training_Logs/ModelTrainingLog(MLFlow).txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/Training_Logs/ModelTrainingLog(MLFlow).txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reports/scores.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Src/Train_model_MLFlow.py" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Train_model_MLFlow.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Transformation/Kmeans_cluster.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Transformation/Kmeans_cluster.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/a8e2ff97bb58481991596fbf4d81170b/meta.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/a8e2ff97bb58481991596fbf4d81170b/tags/mlflow.source.git.commit" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/a8e2ff97bb58481991596fbf4d81170b/tags/mlflow.source.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/a8e2ff97bb58481991596fbf4d81170b/tags/mlflow.source.type" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/a8e2ff97bb58481991596fbf4d81170b/tags/mlflow.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_0/MLmodel" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_0/conda.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_0/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_0/python_env.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_0/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_1/MLmodel" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_1/conda.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_1/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_1/python_env.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_1/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_2/MLmodel" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_2/conda.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_2/model.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_2/python_env.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/artifacts/Models_2/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/meta.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/metrics/mae" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/metrics/r2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/metrics/rmse" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/tags/mlflow.log-model.history" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/tags/mlflow.source.git.commit" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/tags/mlflow.source.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/tags/mlflow.source.type" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mlruns/0/fbbda4d62330484587f3fb0d1efe7e96/tags/mlflow.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_0/MLmodel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_0/conda.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_0/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_0/python_env.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_0/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_1/MLmodel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_1/conda.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_1/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_1/python_env.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_1/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_2/MLmodel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_2/conda.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_2/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_2/python_env.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/artifacts/Models_2/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/meta.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/metrics/mae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/metrics/r2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/metrics/rmse" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/tags/mlflow.log-model.history" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/tags/mlflow.source.git.commit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/tags/mlflow.source.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/tags/mlflow.source.type" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/936fddfa65514b3ca5358f3cbf4ee403/tags/mlflow.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/93bde6ba199844e9a6335a6771824dd4/meta.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/93bde6ba199844e9a6335a6771824dd4/tags/mlflow.source.git.commit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/93bde6ba199844e9a6335a6771824dd4/tags/mlflow.source.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/93bde6ba199844e9a6335a6771824dd4/tags/mlflow.source.type" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/93bde6ba199844e9a6335a6771824dd4/tags/mlflow.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_0/MLmodel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_0/conda.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_0/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_0/python_env.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_0/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_1/MLmodel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_1/conda.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_1/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_1/python_env.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_1/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_2/MLmodel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_2/conda.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_2/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_2/python_env.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/artifacts/Models_2/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/meta.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/metrics/mae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/metrics/r2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/metrics/rmse" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/tags/mlflow.log-model.history" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/tags/mlflow.source.git.commit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/tags/mlflow.source.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/tags/mlflow.source.type" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/b248e323c16b4631b5ee7af88efd624a/tags/mlflow.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_0/MLmodel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_0/conda.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_0/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_0/python_env.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_0/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_1/MLmodel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_1/conda.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_1/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_1/python_env.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_1/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_2/MLmodel" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_2/conda.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_2/model.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_2/python_env.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/artifacts/Models_2/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/meta.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/metrics/mae" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/metrics/r2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/metrics/rmse" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/tags/mlflow.log-model.history" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/tags/mlflow.source.git.commit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/tags/mlflow.source.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/tags/mlflow.source.type" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mlruns/0/ca21d7a2d09c4b45a54fe60c8cea5b0e/tags/mlflow.user" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/mlruns/0/meta.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/params.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/params.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

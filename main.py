@@ -6,9 +6,11 @@ from Src.Read_Yaml import read_params
 from flask_cors import CORS, cross_origin
 from Src.Prediction_Validation_Insertion import PredictionValidation
 from Src.Training_Model import TrainModel
+from Src.Train_model_MLFlow import TrainModel_MLFlow
 from Src.Training_Validation_Insertion import TrainValidation
 import flask_monitoringdashboard as dashboard
 from Src.Predict_From_Model import Prediction
+
 
 
 os.putenv('LANG', 'en_US.UTF-8')
@@ -33,7 +35,8 @@ def train_route_client():
         train_val_obj = TrainValidation(path['load_data']['raw_dataset_csv'])
         train_val_obj.train_validation()
 
-        train_model_obj = TrainModel()
+        #train_model_obj = TrainModel()
+        train_model_obj = TrainModel_MLFlow()
         train_model_obj.training_model()
 
         return Response("Training Successful")
