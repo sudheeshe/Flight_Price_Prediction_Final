@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c393321-91e8-4232-ada6-8edd952ed3c1" name="Changes" comment="Training_Model.py is fully updated">
-      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Final_Training_Data/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Training_Data/Training_File_From_DB/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Data/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
