@@ -3,7 +3,7 @@ This is the Entry point for Training the Machine Learning Model.
 """
 
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, accuracy_score
 from Src.Data_Loader import DataGetter
 from Src.Preprocessing import Preprocessor
 from Src.File_Methods import File_Operation
@@ -15,6 +15,7 @@ from Src.Read_Yaml import read_params
 import mlflow
 import mlflow.sklearn
 import numpy as np
+import json
 
 
 class TrainModel:
@@ -28,9 +29,9 @@ class TrainModel:
         self.file = open(self.schema['logs']['log_dir_training'] + "/ModelTrainingLog(MLFlow).txt", 'a+')
 
     def eval_metrics(self, actual, predicted):
-        rmse = np.sqrt(mean_squared_error(actual, predicted))
-        mae = mean_absolute_error(actual, predicted)
-        r2 = r2_score(actual, predicted)
+        rmse = round(np.sqrt(mean_squared_error(actual, predicted)), 2)
+        mae = round(mean_absolute_error(actual, predicted),2)
+        r2 = round(r2_score(actual, predicted), 2)
         return rmse, mae, r2
 
 
@@ -159,13 +160,16 @@ class TrainModel:
                     print(f"MAE: {mae}")
                     print(f"R2: {r2}" )
 
+                    with open(self.schema['reports']['scores'], 'a+') as file:
+                        json.dump({f'Models_{cluster}': {'rmse': rmse, 'mae':mae, 'r2': r2}}, file)
 
-                    mlflow.log_metric("rmse", rmse)
-                    mlflow.log_metric("r2", r2,)
-                    mlflow.log_metric("mae", mae)
 
                     #mlflow.autolog(disable_for_unsupported_versions= True)
 
+
+                    mlflow.log_metric("rmse", rmse)
+                    mlflow.log_metric("r2", r2)
+                    mlflow.log_metric("mae", mae)
                     mlflow.sklearn.log_model(best_model, f'Models_{cluster}')
 
 

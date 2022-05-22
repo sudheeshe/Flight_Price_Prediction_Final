@@ -669,3 +669,516 @@
 2022-05-22/17:00:26		Entered the save_model method of the File_Operation class
 2022-05-22/17:00:26		Model File RandomForest Regressor0 saved. Exited the save_model method of the Model_Finder class
 2022-05-22/17:00:26		Successful End of Training
+2022-05-22/20:29:13		Start of Training......!!!
+2022-05-22/20:29:13		Data Load Successful.Exited the get_data method of the Data_Getter class
+2022-05-22/20:29:13		Entered the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:29:13		Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:29:13		Dropping Nan rows are successfull....!!
+2022-05-22/20:29:13		removal of the rows with 'Duration' column are successful....!!
+2022-05-22/20:29:13		Merging of the values are successful....!!
+2022-05-22/20:29:13		Merging of the values are successful....!!
+2022-05-22/20:29:14		Mapping of the values are successful....!!
+2022-05-22/20:29:14		Conversion to datetime format of 'Date_of_Journey' column is successful......!!
+2022-05-22/20:29:14		Conversion to parts_of_day of 'Dep_Time' column is successful......!!
+2022-05-22/20:29:14		Conversion to parts_of_day of 'Arrival_Time' column is successful......!!
+2022-05-22/20:29:14		Conversion of column values into minutes are successful....!!
+2022-05-22/20:29:14		['Route', 'ID'] column has been removed successfully...!!
+2022-05-22/20:29:14		Entered the separate_label_feature method of the Preprocessor class
+2022-05-22/20:29:14		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2022-05-22/20:29:14		Entered the elbow_plot method of the KMeansClustering class
+2022-05-22/20:29:16		The optimum number of clusters is: 3. Exited the elbow_plot method of the KMeansClustering class
+2022-05-22/20:29:16		Entered the create_clusters method of the KMeansClustering class
+2022-05-22/20:29:16		Entered the save_model method of the File_Operation class
+2022-05-22/20:29:16		Model File KMeans_Training saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:29:16		succesfully created 3 clusters. Exited the create_clusters method of the KMeansClustering class
+2022-05-22/20:29:16		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:29:16		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:29:16		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:29:16		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:29:17		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:29:17		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 6937575.18688969 and RF is 4204303.673291096
+2022-05-22/20:29:19		Entered the save_model method of the File_Operation class
+2022-05-22/20:29:19		Model File RandomForest Regressor2 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:29:19		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:29:19		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:29:19		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:29:19		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:29:20		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:29:20		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 5660342.4381583175 and RF is 2634570.8798862505
+2022-05-22/20:29:21		Entered the save_model method of the File_Operation class
+2022-05-22/20:29:22		Model File RandomForest Regressor1 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:29:22		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:29:22		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:29:22		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:29:22		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:29:22		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:29:22		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 6273264.654012916 and RF is 3705211.5153302005
+2022-05-22/20:29:24		Entered the save_model method of the File_Operation class
+2022-05-22/20:29:24		Model File RandomForest Regressor0 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:29:24		Successful End of Training
+2022-05-22/20:32:35		Start of Training......!!!
+2022-05-22/20:32:35		Data Load Successful.Exited the get_data method of the Data_Getter class
+2022-05-22/20:32:35		Entered the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:32:35		Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:32:35		Dropping Nan rows are successfull....!!
+2022-05-22/20:32:35		removal of the rows with 'Duration' column are successful....!!
+2022-05-22/20:32:35		Merging of the values are successful....!!
+2022-05-22/20:32:35		Merging of the values are successful....!!
+2022-05-22/20:32:35		Mapping of the values are successful....!!
+2022-05-22/20:32:35		Conversion to datetime format of 'Date_of_Journey' column is successful......!!
+2022-05-22/20:32:35		Conversion to parts_of_day of 'Dep_Time' column is successful......!!
+2022-05-22/20:32:35		Conversion to parts_of_day of 'Arrival_Time' column is successful......!!
+2022-05-22/20:32:35		Conversion of column values into minutes are successful....!!
+2022-05-22/20:32:35		['Route', 'ID'] column has been removed successfully...!!
+2022-05-22/20:32:35		Entered the separate_label_feature method of the Preprocessor class
+2022-05-22/20:32:35		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2022-05-22/20:32:35		Entered the elbow_plot method of the KMeansClustering class
+2022-05-22/20:32:37		The optimum number of clusters is: 3. Exited the elbow_plot method of the KMeansClustering class
+2022-05-22/20:32:37		Entered the create_clusters method of the KMeansClustering class
+2022-05-22/20:32:37		Entered the save_model method of the File_Operation class
+2022-05-22/20:32:37		Model File KMeans_Training saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:32:37		succesfully created 3 clusters. Exited the create_clusters method of the KMeansClustering class
+2022-05-22/20:32:37		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:32:37		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:32:37		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:32:37		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:32:38		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:32:38		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 6937575.18688969 and RF is 4308034.283073546
+2022-05-22/20:32:40		Entered the save_model method of the File_Operation class
+2022-05-22/20:32:40		Model File RandomForest Regressor1 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:32:40		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:32:40		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:32:40		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:32:40		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:32:41		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:32:41		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 5660342.4381583175 and RF is 2528459.609526814
+2022-05-22/20:32:43		Entered the save_model method of the File_Operation class
+2022-05-22/20:32:43		Model File RandomForest Regressor2 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:32:43		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:32:43		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:32:43		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:32:43		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:32:43		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:32:43		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 6273264.654012916 and RF is 4060668.686200975
+2022-05-22/20:32:45		Entered the save_model method of the File_Operation class
+2022-05-22/20:32:45		Model File RandomForest Regressor0 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:32:45		Successful End of Training
+2022-05-22/20:41:57		Start of Training......!!!
+2022-05-22/20:41:57		Data Load Successful.Exited the get_data method of the Data_Getter class
+2022-05-22/20:41:57		Entered the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:41:57		Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:41:57		Dropping Nan rows are successfull....!!
+2022-05-22/20:41:57		removal of the rows with 'Duration' column are successful....!!
+2022-05-22/20:41:57		Merging of the values are successful....!!
+2022-05-22/20:41:57		Merging of the values are successful....!!
+2022-05-22/20:41:57		Mapping of the values are successful....!!
+2022-05-22/20:41:57		Conversion to datetime format of 'Date_of_Journey' column is successful......!!
+2022-05-22/20:41:57		Conversion to parts_of_day of 'Dep_Time' column is successful......!!
+2022-05-22/20:41:57		Conversion to parts_of_day of 'Arrival_Time' column is successful......!!
+2022-05-22/20:41:57		Conversion of column values into minutes are successful....!!
+2022-05-22/20:41:57		['Route', 'ID'] column has been removed successfully...!!
+2022-05-22/20:41:57		Entered the separate_label_feature method of the Preprocessor class
+2022-05-22/20:41:57		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2022-05-22/20:41:57		Entered the elbow_plot method of the KMeansClustering class
+2022-05-22/20:41:59		The optimum number of clusters is: 3. Exited the elbow_plot method of the KMeansClustering class
+2022-05-22/20:41:59		Entered the create_clusters method of the KMeansClustering class
+2022-05-22/20:41:59		Entered the save_model method of the File_Operation class
+2022-05-22/20:41:59		Model File KMeans_Training saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:41:59		succesfully created 3 clusters. Exited the create_clusters method of the KMeansClustering class
+2022-05-22/20:41:59		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:41:59		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:41:59		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:41:59		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:42:00		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:42:00		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 6937575.18688969 and RF is 4220201.020500142
+2022-05-22/20:42:02		Entered the save_model method of the File_Operation class
+2022-05-22/20:42:02		Model File RandomForest Regressor2 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:42:02		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:42:02		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:42:02		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:42:02		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:42:03		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:42:03		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 5660342.4381583175 and RF is 2561782.0156367137
+2022-05-22/20:42:05		Entered the save_model method of the File_Operation class
+2022-05-22/20:42:05		Model File RandomForest Regressor1 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:42:05		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:42:05		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:42:05		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:42:05		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:42:05		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:42:06		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 6273264.654012916 and RF is 4028120.9071180276
+2022-05-22/20:42:07		Entered the save_model method of the File_Operation class
+2022-05-22/20:42:07		Model File RandomForest Regressor0 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:42:07		Successful End of Training
+2022-05-22/20:44:25		Start of Training......!!!
+2022-05-22/20:44:25		Data Load Successful.Exited the get_data method of the Data_Getter class
+2022-05-22/20:44:25		Entered the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:44:25		Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:44:25		Dropping Nan rows are successfull....!!
+2022-05-22/20:44:25		removal of the rows with 'Duration' column are successful....!!
+2022-05-22/20:44:25		Merging of the values are successful....!!
+2022-05-22/20:44:25		Merging of the values are successful....!!
+2022-05-22/20:44:25		Mapping of the values are successful....!!
+2022-05-22/20:44:25		Conversion to datetime format of 'Date_of_Journey' column is successful......!!
+2022-05-22/20:44:25		Conversion to parts_of_day of 'Dep_Time' column is successful......!!
+2022-05-22/20:44:25		Conversion to parts_of_day of 'Arrival_Time' column is successful......!!
+2022-05-22/20:44:25		Conversion of column values into minutes are successful....!!
+2022-05-22/20:44:25		['Route', 'ID'] column has been removed successfully...!!
+2022-05-22/20:44:25		Entered the separate_label_feature method of the Preprocessor class
+2022-05-22/20:44:25		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2022-05-22/20:44:26		Entered the elbow_plot method of the KMeansClustering class
+2022-05-22/20:44:28		The optimum number of clusters is: 3. Exited the elbow_plot method of the KMeansClustering class
+2022-05-22/20:44:28		Entered the create_clusters method of the KMeansClustering class
+2022-05-22/20:44:28		Entered the save_model method of the File_Operation class
+2022-05-22/20:44:28		Model File KMeans_Training saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:44:28		succesfully created 3 clusters. Exited the create_clusters method of the KMeansClustering class
+2022-05-22/20:44:28		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:44:28		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:44:28		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:44:28		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:44:28		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:44:28		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 6937575.18688969 and RF is 4388362.537699736
+2022-05-22/20:44:31		Entered the save_model method of the File_Operation class
+2022-05-22/20:44:31		Model File RandomForest Regressor1 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:44:31		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:44:31		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:44:31		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:44:31		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:44:32		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:44:32		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 5660342.4381583175 and RF is 2565129.8306443472
+2022-05-22/20:44:33		Entered the save_model method of the File_Operation class
+2022-05-22/20:44:33		Model File RandomForest Regressor2 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:44:33		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:44:33		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:44:34		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:44:34		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:44:34		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:44:34		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 6273264.654012916 and RF is 3976951.7403711197
+2022-05-22/20:44:36		Entered the save_model method of the File_Operation class
+2022-05-22/20:44:36		Model File RandomForest Regressor0 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:44:36		Successful End of Training
+2022-05-22/20:47:00		Start of Training......!!!
+2022-05-22/20:47:00		Data Load Successful.Exited the get_data method of the Data_Getter class
+2022-05-22/20:47:00		Entered the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:47:00		Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:47:00		Dropping Nan rows are successfull....!!
+2022-05-22/20:47:00		removal of the rows with 'Duration' column are successful....!!
+2022-05-22/20:47:00		Merging of the values are successful....!!
+2022-05-22/20:47:00		Merging of the values are successful....!!
+2022-05-22/20:47:00		Mapping of the values are successful....!!
+2022-05-22/20:47:00		Conversion to datetime format of 'Date_of_Journey' column is successful......!!
+2022-05-22/20:47:00		Conversion to parts_of_day of 'Dep_Time' column is successful......!!
+2022-05-22/20:47:00		Conversion to parts_of_day of 'Arrival_Time' column is successful......!!
+2022-05-22/20:47:00		Conversion of column values into minutes are successful....!!
+2022-05-22/20:47:00		['Route', 'ID'] column has been removed successfully...!!
+2022-05-22/20:47:00		Entered the separate_label_feature method of the Preprocessor class
+2022-05-22/20:47:00		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2022-05-22/20:47:00		Entered the elbow_plot method of the KMeansClustering class
+2022-05-22/20:47:03		The optimum number of clusters is: 3. Exited the elbow_plot method of the KMeansClustering class
+2022-05-22/20:47:03		Entered the create_clusters method of the KMeansClustering class
+2022-05-22/20:47:03		Entered the save_model method of the File_Operation class
+2022-05-22/20:47:03		Model File KMeans_Training saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:47:03		succesfully created 3 clusters. Exited the create_clusters method of the KMeansClustering class
+2022-05-22/20:47:03		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:47:03		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:47:03		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:47:03		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:47:05		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 100, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:47:05		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1) , Error of LR is 6937575.18688969 and RF is 4200578.874658019
+2022-05-22/20:47:08		Entered the save_model method of the File_Operation class
+2022-05-22/20:47:08		Model File RandomForest Regressor1 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:47:08		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:47:08		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:47:08		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:47:08		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:47:10		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:47:10		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 5660342.4381583175 and RF is 2598843.944443543
+2022-05-22/20:47:12		Entered the save_model method of the File_Operation class
+2022-05-22/20:47:12		Model File RandomForest Regressor2 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:47:12		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:47:12		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:47:12		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:47:12		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:47:15		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:47:15		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 6273264.654012916 and RF is 3861951.0592528363
+2022-05-22/20:47:17		Entered the save_model method of the File_Operation class
+2022-05-22/20:47:17		Model File RandomForest Regressor0 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:47:17		Successful End of Training
+2022-05-22/20:50:50		Start of Training......!!!
+2022-05-22/20:50:50		Data Load Successful.Exited the get_data method of the Data_Getter class
+2022-05-22/20:50:50		Entered the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:50:50		Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:50:50		Dropping Nan rows are successfull....!!
+2022-05-22/20:50:50		removal of the rows with 'Duration' column are successful....!!
+2022-05-22/20:50:51		Merging of the values are successful....!!
+2022-05-22/20:50:51		Merging of the values are successful....!!
+2022-05-22/20:50:51		Mapping of the values are successful....!!
+2022-05-22/20:50:51		Conversion to datetime format of 'Date_of_Journey' column is successful......!!
+2022-05-22/20:50:51		Conversion to parts_of_day of 'Dep_Time' column is successful......!!
+2022-05-22/20:50:51		Conversion to parts_of_day of 'Arrival_Time' column is successful......!!
+2022-05-22/20:50:51		Conversion of column values into minutes are successful....!!
+2022-05-22/20:50:51		['Route', 'ID'] column has been removed successfully...!!
+2022-05-22/20:50:51		Entered the separate_label_feature method of the Preprocessor class
+2022-05-22/20:50:51		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2022-05-22/20:50:51		Entered the elbow_plot method of the KMeansClustering class
+2022-05-22/20:50:53		The optimum number of clusters is: 3. Exited the elbow_plot method of the KMeansClustering class
+2022-05-22/20:50:53		Entered the create_clusters method of the KMeansClustering class
+2022-05-22/20:50:53		Entered the save_model method of the File_Operation class
+2022-05-22/20:50:53		Model File KMeans_Training saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:50:53		succesfully created 3 clusters. Exited the create_clusters method of the KMeansClustering class
+2022-05-22/20:50:53		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:50:53		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:50:53		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:50:53		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:50:56		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 100, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:50:56		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1) , Error of LR is 6937575.18688969 and RF is 4286810.793358875
+2022-05-22/20:50:56		Unsuccessful End of Training
+2022-05-22/20:50:56		Error while training the model type str doesn't define __round__ method
+2022-05-22/20:51:59		Start of Training......!!!
+2022-05-22/20:51:59		Data Load Successful.Exited the get_data method of the Data_Getter class
+2022-05-22/20:51:59		Entered the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:51:59		Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:51:59		Dropping Nan rows are successfull....!!
+2022-05-22/20:51:59		removal of the rows with 'Duration' column are successful....!!
+2022-05-22/20:51:59		Merging of the values are successful....!!
+2022-05-22/20:51:59		Merging of the values are successful....!!
+2022-05-22/20:51:59		Mapping of the values are successful....!!
+2022-05-22/20:51:59		Conversion to datetime format of 'Date_of_Journey' column is successful......!!
+2022-05-22/20:51:59		Conversion to parts_of_day of 'Dep_Time' column is successful......!!
+2022-05-22/20:51:59		Conversion to parts_of_day of 'Arrival_Time' column is successful......!!
+2022-05-22/20:51:59		Conversion of column values into minutes are successful....!!
+2022-05-22/20:51:59		['Route', 'ID'] column has been removed successfully...!!
+2022-05-22/20:51:59		Entered the separate_label_feature method of the Preprocessor class
+2022-05-22/20:51:59		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2022-05-22/20:51:59		Entered the elbow_plot method of the KMeansClustering class
+2022-05-22/20:52:01		The optimum number of clusters is: 3. Exited the elbow_plot method of the KMeansClustering class
+2022-05-22/20:52:01		Entered the create_clusters method of the KMeansClustering class
+2022-05-22/20:52:01		Entered the save_model method of the File_Operation class
+2022-05-22/20:52:01		Model File KMeans_Training saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:52:01		succesfully created 3 clusters. Exited the create_clusters method of the KMeansClustering class
+2022-05-22/20:52:01		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:52:01		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:52:01		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:52:01		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:52:04		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 100, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:52:04		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1) , Error of LR is 6937575.18688969 and RF is 4233260.992524639
+2022-05-22/20:52:04		Unsuccessful End of Training
+2022-05-22/20:52:04		Error while training the model could not convert string to float: 'Error of LR is 6937575.18688969 and RF is 4233260.992524639'
+2022-05-22/20:53:41		Start of Training......!!!
+2022-05-22/20:53:41		Data Load Successful.Exited the get_data method of the Data_Getter class
+2022-05-22/20:53:41		Entered the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:53:41		Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:53:41		Dropping Nan rows are successfull....!!
+2022-05-22/20:53:41		removal of the rows with 'Duration' column are successful....!!
+2022-05-22/20:53:41		Merging of the values are successful....!!
+2022-05-22/20:53:41		Merging of the values are successful....!!
+2022-05-22/20:53:41		Mapping of the values are successful....!!
+2022-05-22/20:53:41		Conversion to datetime format of 'Date_of_Journey' column is successful......!!
+2022-05-22/20:53:41		Conversion to parts_of_day of 'Dep_Time' column is successful......!!
+2022-05-22/20:53:41		Conversion to parts_of_day of 'Arrival_Time' column is successful......!!
+2022-05-22/20:53:41		Conversion of column values into minutes are successful....!!
+2022-05-22/20:53:41		['Route', 'ID'] column has been removed successfully...!!
+2022-05-22/20:53:41		Entered the separate_label_feature method of the Preprocessor class
+2022-05-22/20:53:41		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2022-05-22/20:53:41		Entered the elbow_plot method of the KMeansClustering class
+2022-05-22/20:53:43		The optimum number of clusters is: 3. Exited the elbow_plot method of the KMeansClustering class
+2022-05-22/20:53:43		Entered the create_clusters method of the KMeansClustering class
+2022-05-22/20:53:43		Entered the save_model method of the File_Operation class
+2022-05-22/20:53:43		Model File KMeans_Training saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:53:43		succesfully created 3 clusters. Exited the create_clusters method of the KMeansClustering class
+2022-05-22/20:53:43		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:53:43		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:53:43		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:53:43		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:53:46		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 100, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:53:46		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1) , Error of LR is 6937575.18688969 and RF is 4251638.366396772
+2022-05-22/20:53:49		Entered the save_model method of the File_Operation class
+2022-05-22/20:53:49		Model File RandomForest Regressor2 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:53:49		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:53:49		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:53:49		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:53:49		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:53:51		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:53:51		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 5660342.4381583175 and RF is 2514170.6384853916
+2022-05-22/20:53:53		Entered the save_model method of the File_Operation class
+2022-05-22/20:53:53		Model File RandomForest Regressor1 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:53:53		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:53:53		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:53:53		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:53:53		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:53:55		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:53:55		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 6273264.654012916 and RF is 3994801.597473851
+2022-05-22/20:53:57		Entered the save_model method of the File_Operation class
+2022-05-22/20:53:57		Model File RandomForest Regressor0 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:53:57		Successful End of Training
+2022-05-22/20:54:38		Start of Training......!!!
+2022-05-22/20:54:38		Data Load Successful.Exited the get_data method of the Data_Getter class
+2022-05-22/20:54:38		Entered the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:54:38		Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:54:38		Dropping Nan rows are successfull....!!
+2022-05-22/20:54:38		removal of the rows with 'Duration' column are successful....!!
+2022-05-22/20:54:38		Merging of the values are successful....!!
+2022-05-22/20:54:38		Merging of the values are successful....!!
+2022-05-22/20:54:38		Mapping of the values are successful....!!
+2022-05-22/20:54:38		Conversion to datetime format of 'Date_of_Journey' column is successful......!!
+2022-05-22/20:54:38		Conversion to parts_of_day of 'Dep_Time' column is successful......!!
+2022-05-22/20:54:38		Conversion to parts_of_day of 'Arrival_Time' column is successful......!!
+2022-05-22/20:54:38		Conversion of column values into minutes are successful....!!
+2022-05-22/20:54:38		['Route', 'ID'] column has been removed successfully...!!
+2022-05-22/20:54:38		Entered the separate_label_feature method of the Preprocessor class
+2022-05-22/20:54:38		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2022-05-22/20:54:38		Entered the elbow_plot method of the KMeansClustering class
+2022-05-22/20:54:40		The optimum number of clusters is: 3. Exited the elbow_plot method of the KMeansClustering class
+2022-05-22/20:54:40		Entered the create_clusters method of the KMeansClustering class
+2022-05-22/20:54:40		Entered the save_model method of the File_Operation class
+2022-05-22/20:54:40		Model File KMeans_Training saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:54:40		succesfully created 3 clusters. Exited the create_clusters method of the KMeansClustering class
+2022-05-22/20:54:40		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:54:40		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:54:40		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:54:40		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:54:43		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 100, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:54:43		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1) , Error of LR is 6937575.18688969 and RF is 4250109.05500668
+2022-05-22/20:54:45		Entered the save_model method of the File_Operation class
+2022-05-22/20:54:46		Model File RandomForest Regressor2 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:54:46		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:54:46		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:54:46		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:54:46		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:54:48		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:54:48		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 5660342.4381583175 and RF is 2648761.2958303834
+2022-05-22/20:54:50		Entered the save_model method of the File_Operation class
+2022-05-22/20:54:50		Model File RandomForest Regressor1 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:54:50		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:54:50		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:54:50		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:54:50		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:54:52		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 10, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:54:52		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 6273264.654012916 and RF is 3966254.5063736015
+2022-05-22/20:54:54		Entered the save_model method of the File_Operation class
+2022-05-22/20:54:54		Model File RandomForest Regressor0 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:54:54		Successful End of Training
+2022-05-22/20:56:27		Start of Training......!!!
+2022-05-22/20:56:27		Data Load Successful.Exited the get_data method of the Data_Getter class
+2022-05-22/20:56:27		Entered the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:56:27		Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/20:56:27		Dropping Nan rows are successfull....!!
+2022-05-22/20:56:27		removal of the rows with 'Duration' column are successful....!!
+2022-05-22/20:56:27		Merging of the values are successful....!!
+2022-05-22/20:56:27		Merging of the values are successful....!!
+2022-05-22/20:56:27		Mapping of the values are successful....!!
+2022-05-22/20:56:27		Conversion to datetime format of 'Date_of_Journey' column is successful......!!
+2022-05-22/20:56:27		Conversion to parts_of_day of 'Dep_Time' column is successful......!!
+2022-05-22/20:56:27		Conversion to parts_of_day of 'Arrival_Time' column is successful......!!
+2022-05-22/20:56:27		Conversion of column values into minutes are successful....!!
+2022-05-22/20:56:27		['Route', 'ID'] column has been removed successfully...!!
+2022-05-22/20:56:27		Entered the separate_label_feature method of the Preprocessor class
+2022-05-22/20:56:27		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2022-05-22/20:56:27		Entered the elbow_plot method of the KMeansClustering class
+2022-05-22/20:56:29		The optimum number of clusters is: 3. Exited the elbow_plot method of the KMeansClustering class
+2022-05-22/20:56:29		Entered the create_clusters method of the KMeansClustering class
+2022-05-22/20:56:30		Entered the save_model method of the File_Operation class
+2022-05-22/20:56:30		Model File KMeans_Training saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:56:30		succesfully created 3 clusters. Exited the create_clusters method of the KMeansClustering class
+2022-05-22/20:56:30		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:56:30		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:56:30		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:56:30		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:56:50		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 5, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 100, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:56:50		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1) , Error of LR is 6937575.18688969 and RF is 4139726.0842267415
+2022-05-22/20:56:52		Entered the save_model method of the File_Operation class
+2022-05-22/20:56:52		Model File RandomForest Regressor2 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:56:52		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:56:52		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:56:52		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:56:52		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:57:12		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 5, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:57:12		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 5660342.4381583175 and RF is 2550846.4809115063
+2022-05-22/20:57:14		Entered the save_model method of the File_Operation class
+2022-05-22/20:57:14		Model File RandomForest Regressor1 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:57:14		Entered the get_best_model method of the ModelFinder class
+2022-05-22/20:57:14		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/20:57:14		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/20:57:14		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/20:57:34		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 5, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/20:57:34		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1, n_estimators=50) , Error of LR is 6273264.654012916 and RF is 3922733.5728961225
+2022-05-22/20:57:36		Entered the save_model method of the File_Operation class
+2022-05-22/20:57:36		Model File RandomForest Regressor0 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/20:57:36		Successful End of Training
+2022-05-22/21:01:19		Start of Training......!!!
+2022-05-22/21:01:19		Data Load Successful.Exited the get_data method of the Data_Getter class
+2022-05-22/21:01:19		Entered the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/21:01:19		Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/21:01:19		Dropping Nan rows are successfull....!!
+2022-05-22/21:01:19		removal of the rows with 'Duration' column are successful....!!
+2022-05-22/21:01:19		Merging of the values are successful....!!
+2022-05-22/21:01:19		Merging of the values are successful....!!
+2022-05-22/21:01:19		Mapping of the values are successful....!!
+2022-05-22/21:01:19		Conversion to datetime format of 'Date_of_Journey' column is successful......!!
+2022-05-22/21:01:19		Conversion to parts_of_day of 'Dep_Time' column is successful......!!
+2022-05-22/21:01:19		Conversion to parts_of_day of 'Arrival_Time' column is successful......!!
+2022-05-22/21:01:19		Conversion of column values into minutes are successful....!!
+2022-05-22/21:01:19		['Route', 'ID'] column has been removed successfully...!!
+2022-05-22/21:01:19		Entered the separate_label_feature method of the Preprocessor class
+2022-05-22/21:01:19		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2022-05-22/21:01:20		Entered the elbow_plot method of the KMeansClustering class
+2022-05-22/21:01:22		The optimum number of clusters is: 3. Exited the elbow_plot method of the KMeansClustering class
+2022-05-22/21:01:22		Entered the create_clusters method of the KMeansClustering class
+2022-05-22/21:01:22		Entered the save_model method of the File_Operation class
+2022-05-22/21:01:22		Model File KMeans_Training saved. Exited the save_model method of the Model_Finder class
+2022-05-22/21:01:22		succesfully created 3 clusters. Exited the create_clusters method of the KMeansClustering class
+2022-05-22/21:01:22		Entered the get_best_model method of the ModelFinder class
+2022-05-22/21:01:22		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/21:01:22		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/21:01:22		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/21:01:42		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 5, 'max_features': 1, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 100, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/21:01:42		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=1) , Error of LR is 6937575.18688969 and RF is 4329897.506048602
+2022-05-22/21:01:42		Unsuccessful End of Training
+2022-05-22/21:01:42		Error while training the model Classification metrics can't handle a mix of multiclass and continuous targets
+2022-05-22/21:04:50		Start of Training......!!!
+2022-05-22/21:04:50		Data Load Successful.Exited the get_data method of the Data_Getter class
+2022-05-22/21:04:50		Entered the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/21:04:50		Column search for Standard Deviation of Zero Successful. Exited the get_columns_with_zero_std_deviation method of the Preprocessor class
+2022-05-22/21:04:50		Dropping Nan rows are successfull....!!
+2022-05-22/21:04:50		removal of the rows with 'Duration' column are successful....!!
+2022-05-22/21:04:50		Merging of the values are successful....!!
+2022-05-22/21:04:50		Merging of the values are successful....!!
+2022-05-22/21:04:50		Mapping of the values are successful....!!
+2022-05-22/21:04:50		Conversion to datetime format of 'Date_of_Journey' column is successful......!!
+2022-05-22/21:04:50		Conversion to parts_of_day of 'Dep_Time' column is successful......!!
+2022-05-22/21:04:50		Conversion to parts_of_day of 'Arrival_Time' column is successful......!!
+2022-05-22/21:04:50		Conversion of column values into minutes are successful....!!
+2022-05-22/21:04:50		['Route', 'ID'] column has been removed successfully...!!
+2022-05-22/21:04:50		Entered the separate_label_feature method of the Preprocessor class
+2022-05-22/21:04:50		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2022-05-22/21:04:51		Entered the elbow_plot method of the KMeansClustering class
+2022-05-22/21:04:53		The optimum number of clusters is: 3. Exited the elbow_plot method of the KMeansClustering class
+2022-05-22/21:04:53		Entered the create_clusters method of the KMeansClustering class
+2022-05-22/21:04:53		Entered the save_model method of the File_Operation class
+2022-05-22/21:04:53		Model File KMeans_Training saved. Exited the save_model method of the Model_Finder class
+2022-05-22/21:04:53		succesfully created 3 clusters. Exited the create_clusters method of the KMeansClustering class
+2022-05-22/21:04:53		Entered the get_best_model method of the ModelFinder class
+2022-05-22/21:04:53		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/21:04:53		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/21:04:53		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/21:06:13		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 5, 'max_features': 3, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/21:06:13		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=3, n_estimators=50) , Error of LR is 6937575.18688969 and RF is 3980385.3434705785
+2022-05-22/21:06:16		Entered the save_model method of the File_Operation class
+2022-05-22/21:06:16		Model File RandomForest Regressor1 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/21:06:16		Entered the get_best_model method of the ModelFinder class
+2022-05-22/21:06:16		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/21:06:16		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/21:06:16		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/21:07:34		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 5, 'max_features': 2, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/21:07:34		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=2, n_estimators=50) , Error of LR is 5660342.4381583175 and RF is 2363832.6818284793
+2022-05-22/21:07:36		Entered the save_model method of the File_Operation class
+2022-05-22/21:07:36		Model File RandomForest Regressor2 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/21:07:36		Entered the get_best_model method of the ModelFinder class
+2022-05-22/21:07:36		Entered the get_best_params_of_linear_regressor method of the ModelFinder class
+2022-05-22/21:07:36		LinearRegression best params: {'fit_intercept': True} Exited the get_best_params_for_linearReg method of the Model_Finder class
+2022-05-22/21:07:36		Entered the get_best_params_of_randomforest_regressor method of the ModelFinder class
+2022-05-22/21:08:57		Random_Forest_Regressor's best params are : {'bootstrap': True, 'ccp_alpha': 0, 'max_depth': 5, 'max_features': 2, 'max_leaf_nodes': 4, 'max_samples': 5, 'min_impurity_decrease': 0, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0, 'n_estimators': 50, 'n_jobs': 1, 'oob_score': False, 'random_state': 369, 'verbose': 0, 'warm_start': False}, Exited the RandomForestReg method of the Model_Finder class
+2022-05-22/21:08:57		The Best Model is 'RF Regressor', RandomForestRegressor(max_features=2, n_estimators=50) , Error of LR is 6273264.654012916 and RF is 3626819.511207433
+2022-05-22/21:08:59		Entered the save_model method of the File_Operation class
+2022-05-22/21:08:59		Model File RandomForest Regressor0 saved. Exited the save_model method of the Model_Finder class
+2022-05-22/21:08:59		Successful End of Training
