@@ -2,24 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c393321-91e8-4232-ada6-8edd952ed3c1" name="Changes" comment="Training_Model.py is fully updated">
-      <change afterPath="$PROJECT_DIR$/Src/Prediction_Data_Preprocessing.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Src/Train_model_MLFlow.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Final_Test_Data/final_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Output_File/Predictions.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Raw_Files_Validated/Bad_Raw/DATA_2019 (3).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Raw_Files_Validated/Bad_Raw/Data_2019 (2).xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Data/Prediction_Data/Prediction_Raw_Files_Validated/Good_Raw/data_2018.xlsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/DbInsertLog.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/GeneralLog.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/columnValidationLog.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/missingValuesInWholeColumnLog.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/nameValidationLog.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/Prediction_Logs/valuesfromSchemaValidationLog.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Logs/Prediction_LogsPrediction_Main_Log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/Prediction_LogsPrediction_Main_Log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/File_Methods.py" beforeDir="false" afterPath="$PROJECT_DIR$/Src/File_Methods.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/Predict_From_Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Predict_From_Model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/Prediction_Final_Data_Input.py" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Prediction_Final_Data_Input.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/params.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/params.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Data_Info/Plots/K_Means_Elbow.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Logs/Training_Logs/ModelTrainingLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Logs/Training_Logs/ModelTrainingLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Transformation/Kmeans_cluster.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/Transformation/Kmeans_cluster.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +53,7 @@
       <recent name="D:\Experimental Space\Flight Price Prediction_MLOps\Logs\Data_Info" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python.test">
     <configuration name="Read_Yaml" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Flight Price Prediction_MLOps" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -131,8 +119,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.main" />
         <item itemvalue="Python.test" />
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.Read_Yaml" />
       </list>
     </recent_temporary>
@@ -324,6 +312,11 @@
           <url>file://$PROJECT_DIR$/Src/Predict_From_Model.py</url>
           <line>28</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Src/Train_model_MLFlow.py</url>
+          <line>156</line>
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
