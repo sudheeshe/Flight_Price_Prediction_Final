@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c393321-91e8-4232-ada6-8edd952ed3c1" name="Changes" comment="Training_Model.py is fully updated">
+      <change afterPath="$PROJECT_DIR$/Data/Training_Data/Final_Training_Data/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/Training_Data/Training_File_From_DB/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
