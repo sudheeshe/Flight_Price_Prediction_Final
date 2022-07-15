@@ -66,8 +66,9 @@ def predict_route_client():
 
 
 
-if __name__ == '__main__':
-    port = int(os.getenv("PORT", 5000))
-    httpd = simple_server.make_server(host= '0.0.0.0', app = app, port = port)
+port = int(os.getenv("PORT", 5000))
+
+if __name__ == "__main__":
+    host = '0.0.0.0'
+    httpd = simple_server.make_server(host=host, port=port, app=app)
     httpd.serve_forever()
-    app.run()
